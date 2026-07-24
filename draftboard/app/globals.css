@@ -9,6 +9,10 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-oswald: var(--font-oswald);
+  --font-space-mono: var(--font-space-mono);
+  /* numbers + PPG, RPG subheadings*/
+  --font-work-sans: var(--font-work-sans);
+  /* p tag*/
   --font-passion-one: var(--font-passion-one);
   --font-luckiest-guy: var(--font-luckiest-guy);
 }
@@ -18,6 +22,25 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+@layer base {
+  h2 {
+    @apply font-passion-one font-bold text-6xl;
+  }
+
+  h3 {
+    @apply font-oswald font-bold;
+  }
+
+  h4 {
+    @apply font-space-mono font-bold;
+  }
+
+  h5 {
+    @apply font-space-mono;
+  }
+
 }
 
 body {
@@ -38,3 +61,13 @@ body {
 .font-luckiest {
   font-family: var(--font-luckiest-guy);
 }
+
+
+
+
+/** 
+  h1
+  h2 - TEAM NAME
+  h3 - PLAYER NAME
+  h4 - PLAYER INFO
+  **/

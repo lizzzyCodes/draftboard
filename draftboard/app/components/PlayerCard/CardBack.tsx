@@ -1,8 +1,20 @@
+import * as NBAIcons from "react-nba-logos";
+
 interface CardBackProps {
     backgroundColor?: string;
+    borderColor?: string;
+    teamAbbreviation: keyof typeof NBAIcons;
+    playerName?: string;
 }
 
-export default function CardBack({ backgroundColor }: CardBackProps) {
+export default function CardBack({
+    backgroundColor,
+    borderColor,
+    teamAbbreviation,
+    playerName
+}: CardBackProps) {
+    const TeamIcon = NBAIcons[teamAbbreviation]; // cant use ? or else its going to cmplin keep in mind
+
     return (
         <section
             className="
@@ -10,9 +22,9 @@ export default function CardBack({ backgroundColor }: CardBackProps) {
         h-[450px]
         rounded-tl-[20px]
         rounded-tr-[20px]
-        rounded-bl-[40px]
-        rounded-br-none
-        p-[5px]
+        rounded-bl-[20px]
+        rounded-br-[20px]
+        p-[10px]
         overflow-hidden
         relative
       "
@@ -20,7 +32,24 @@ export default function CardBack({ backgroundColor }: CardBackProps) {
                 backgroundColor,
             }}
         >
+            <div
+                className="
+                h-full
+                flex
+                flex-col
+                border-[3px]
+            rounded-tl-[20px]
+            rounded-tr-[20px]
+            rounded-bl-[20px]
+            rounded-br-[20px]"
+                style={{ borderColor: borderColor }}
+            >
+                <div className="size-25">
+                    <TeamIcon />
+                </div>
+                <h3 style={{ color: borderColor }}>{playerName} </h3>
 
+            </div>
         </section>
     );
 }

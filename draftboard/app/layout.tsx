@@ -1,7 +1,19 @@
 import type { Metadata } from "next";
-import { Oswald, Passion_One, Luckiest_Guy } from "next/font/google";
+import { Oswald, Passion_One, Luckiest_Guy, Space_Mono, Work_Sans } from "next/font/google";
 
 import "./globals.css";
+
+const workSans = Work_Sans({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-work-sans",
+});
+
+const spaceMono = Space_Mono({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-space-mono",
+});
 
 const oswald = Oswald({
   weight: ["400", "700"],
@@ -34,7 +46,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${oswald.variable} ${passionOne.variable} ${luckiestGuy.variable} h-full antialiased`}
+      className={`${oswald.variable} ${passionOne.variable} ${luckiestGuy.variable} ${spaceMono.variable} ${workSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

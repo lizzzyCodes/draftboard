@@ -1,9 +1,3 @@
 export default function SearchBar() {
-    return (
-        <form>
-
-        </form>
-    )
+  return <form></form>;
 }
-
-
