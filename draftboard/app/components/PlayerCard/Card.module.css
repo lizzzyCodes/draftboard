@@ -1,0 +1,8 @@
+.playerNameContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 300px;
+  padding: 10px;
+  align-items: center;
+}

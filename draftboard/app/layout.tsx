@@ -1,15 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Oswald, Passion_One, Luckiest_Guy } from "next/font/google";
+
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const oswald = Oswald({
+  weight: ["400", "700"],
   subsets: ["latin"],
+  variable: "--font-oswald",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const passionOne = Passion_One({
+  weight: ["400", "700"],
   subsets: ["latin"],
+  variable: "--font-passion-one",
+});
+
+const luckiestGuy = Luckiest_Guy({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-luckiest-guy",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${oswald.variable} ${passionOne.variable} ${luckiestGuy.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
