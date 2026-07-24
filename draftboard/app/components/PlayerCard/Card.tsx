@@ -43,44 +43,43 @@ export default function Card({ backgroundColor, borderColor }: CardColors) {
         <div
           className="
             h-full
+            flex
+            flex-col
             border-[3px]
             border-[#FEB54C]
             rounded-tl-[16px]
             rounded-tr-[16px]
             rounded-bl-[16px]
             rounded-br-none
-
           "
         >
           <CardHeader />
 
           <hr className="border-t-[1.5px] border-white" />
-
-          <Image
-            src="/player-images/lebron.jpg"
-            alt="LeBron James"
-            width={315}
-            height={100}
-            className="
-              w-full
-              h-[100px]
-              object-cover
-            "
-          />
+          <div className="flex-1 min-h-0 relative w-full">
+            <Image
+              src="/player-images/lebron.jpg"
+              alt="LeBron James"
+              fill
+              className="object-cover"
+            />
+          </div>
 
           <hr className="border-t-[1.5px] border-white" />
 
-          <div className="flex flex-col h-64 p-2 justify-end absolute right-25">
+          <div className=" flex justify-center items-center">
             <PlayerName name="LeBRON JAMES" />
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 z-50 border-2 border-[#FEB54C] bg-white rounded-full size-25 flex items-center justify-center">
-        <NBAIcons.LAL />
+      <div className="absolute bottom-0 left-0 z-50 border-2 border-[#FEB54C] bg-white rounded-full size-25 flex items-center justify-center overflow-hidden">
+        <NBAIcons.LAL className="w-full h-full p-2" />
       </div>
 
-      <div className="absolute right-4 -mt-2"> {/** -mt moves the container up */}
+      <div className="absolute right-4 -mt-2">
+        {" "}
+        {/** -mt moves the container up */}
         <Team team="LAKERS" />
       </div>
     </section>
