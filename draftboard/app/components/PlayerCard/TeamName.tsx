@@ -4,8 +4,13 @@ interface Team {
 
 export default function Team({ team }: Team) {
   return (
-    <p className="font-passion-one font-bold" style={{ color: "#FFFFFF" }}>
-      {team}
-    </p>
+    <div className="p-1">
+      <p
+        className="font-passion-one font-bold text-6xl"
+        style={{ color: "#FFFFFF" }}
+      >
+        {team}
+      </p>
+    </div>
   );
 }

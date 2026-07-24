@@ -5,5 +5,5 @@ interface PlayerName {
 }
 
 export default function PlayerName({ name }: PlayerName) {
-  return <p className="font-oswald font-bold">{name}</p>;
+  return <p className="font-oswald font-bold text-white">{name}</p>;
 }

@@ -4,7 +4,7 @@ import { Stars } from "../Stars";
 
 export default function CardHeader() {
   return (
-    <section className="flex justify-center items-baseline gap-2">
+    <section className="flex justify-center items-baseline gap-2 pt-1">
       <div className="flex gap-2">{Stars}</div>
 
       <h1
