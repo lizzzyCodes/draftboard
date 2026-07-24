@@ -1,6 +1,6 @@
 // Card header NBA Hoops and Stars
 import Image from "next/image";
-import { Stars } from "../Stars";
+import { Stars } from "./Stars";
 
 export default function CardHeader() {
   return (

@@ -4,12 +4,17 @@ import PlayerName from "./PlayerName";
 import Team from "./TeamName";
 import * as NBAIcons from "react-nba-logos";
 
-interface CardColors {
+interface CardProps {
   backgroundColor: string;
   borderColor: string;
+  img: string;
+  playerName: string;
+  team: string;
+  teamAbbreviation: keyof typeof NBAIcons;
 }
 
-export default function Card({ backgroundColor, borderColor }: CardColors) {
+export default function Card({ backgroundColor, borderColor, img, playerName, team, teamAbbreviation }: CardProps) {
+  const TeamIcon = NBAIcons[teamAbbreviation];
   return (
     <section
       className="
@@ -36,9 +41,7 @@ export default function Card({ backgroundColor, borderColor }: CardColors) {
           rounded-tl-[20px]
           rounded-tr-[20px]
           rounded-bl-[20px]
-          rounded-br-none
-
-        "
+          rounded-br-none"
       >
         <div
           className="
@@ -46,20 +49,17 @@ export default function Card({ backgroundColor, borderColor }: CardColors) {
             flex
             flex-col
             border-[3px]
-            border-[#FEB54C]
             rounded-tl-[16px]
             rounded-tr-[16px]
             rounded-bl-[16px]
-            rounded-br-none
-          "
-        >
+            rounded-br-none" style={{ borderColor: borderColor }}>
           <CardHeader />
 
           <hr className="border-t-[1.5px] border-white" />
           <div className="flex-1 min-h-0 relative w-full">
             <Image
-              src="/player-images/lebron.jpg"
-              alt="LeBron James"
+              src={img}
+              alt={playerName}
               fill
               className="object-cover"
             />
@@ -67,20 +67,22 @@ export default function Card({ backgroundColor, borderColor }: CardColors) {
 
           <hr className="border-t-[1.5px] border-white" />
 
-          <div className=" flex justify-center items-center">
-            <PlayerName name="LeBRON JAMES" />
+          <div className="flex justify-center items-center pl-[95px] pr-4  min-w-0">
+            <div className="truncate whitespace-nowrap">
+              <PlayerName name={playerName} />
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 z-50 border-2 border-[#FEB54C] bg-white rounded-full size-25 flex items-center justify-center overflow-hidden">
-        <NBAIcons.LAL className="w-full h-full p-2" />
+      <div className="absolute bottom-0 left-0 z-50 border-2 bg-white rounded-full size-25 flex items-center justify-center overflow-hidden" style={{ borderColor: borderColor }}>
+        <TeamIcon className="w-full h-full p-2" />
       </div>
 
       <div className="absolute right-4 -mt-2">
         {" "}
         {/** -mt moves the container up */}
-        <Team team="LAKERS" />
+        <Team team={team} />
       </div>
     </section>
   );
