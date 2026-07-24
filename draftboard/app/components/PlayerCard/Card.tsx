@@ -70,7 +70,7 @@ export default function Card({ backgroundColor, borderColor }: CardColors) {
 
           <hr className="border-t-[1.5px] border-white" />
 
-          <div className="flex flex-col h-64 p-4 justify-end">
+          <div className="flex flex-col h-64 p-2 justify-end absolute right-25">
             <PlayerName name="LeBRON JAMES" />
           </div>
         </div>
@@ -80,7 +80,7 @@ export default function Card({ backgroundColor, borderColor }: CardColors) {
         <NBAIcons.LAL />
       </div>
 
-      <div className="absolute bottom-2 right-4 z-40 flex items-center">
+      <div className="absolute right-4 -mt-2"> {/** -mt moves the container up */}
         <Team team="LAKERS" />
       </div>
     </section>
