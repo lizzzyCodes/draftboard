@@ -2,25 +2,26 @@ import * as NBAIcons from "react-nba-logos";
 import BackButton from "../Buttons/Back";
 import MetricContainer from "./MetricContainer";
 import PlayerInfo from "./PlayerInfo";
+import PlayerBio from './PlayerBio'
 
 interface CardBackProps {
-  backgroundColor?: string;
-  borderColor?: string;
-  teamAbbreviation: keyof typeof NBAIcons;
-  playerName?: string;
+    backgroundColor?: string;
+    borderColor?: string;
+    teamAbbreviation: keyof typeof NBAIcons;
+    playerName?: string;
 }
 
 export default function CardBack({
-  backgroundColor,
-  borderColor,
-  teamAbbreviation,
-  playerName,
+    backgroundColor,
+    borderColor,
+    teamAbbreviation,
+    playerName,
 }: CardBackProps) {
-  const TeamIcon = NBAIcons[teamAbbreviation]; // cant use ? or else its going to cmplin keep in mind
+    const TeamIcon = NBAIcons[teamAbbreviation]; // cant use ? or else its going to cmplin keep in mind
 
-  return (
-    <section
-      className="
+    return (
+        <section
+            className="
         w-[320px]
         h-[450px]
         rounded-tl-[20px]
@@ -31,12 +32,12 @@ export default function CardBack({
         overflow-hidden
         relative
       "
-      style={{
-        backgroundColor,
-      }}
-    >
-      <div
-        className="
+            style={{
+                backgroundColor,
+            }}
+        >
+            <div
+                className="
                 h-full
                 flex
                 flex-col
@@ -45,17 +46,21 @@ export default function CardBack({
             rounded-tr-[20px]
             rounded-bl-[20px]
             rounded-br-[20px]"
-        style={{ borderColor: borderColor }}
-      >
-        <BackButton />
-        <div className="size-25">
-          <TeamIcon />
-        </div>
-        <h3 style={{ color: borderColor }}>{playerName} </h3>
+                style={{ borderColor: borderColor }}
+            >
+                <BackButton />
+                <div className="size-25">
+                    <TeamIcon />
+                </div>
+                <h3 style={{ color: borderColor }}>{playerName} </h3>
 
-        <MetricContainer />
-        <PlayerInfo color={borderColor} />
-      </div>
-    </section>
-  );
+                <MetricContainer color={borderColor} />
+                <PlayerInfo color={borderColor} />
+                <PlayerBio color={borderColor}
+                    bio="Four-time champion and the league's all-time leading scorer. Still running the offense at an elite level deep into his twenties year."
+                />
+
+            </div>
+        </section>
+    );
 }
