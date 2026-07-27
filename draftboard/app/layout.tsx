@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Oswald, Passion_One, Luckiest_Guy, Space_Mono, Work_Sans } from "next/font/google";
+import {
+  Oswald,
+  Passion_One,
+  Luckiest_Guy,
+  Space_Mono,
+  Work_Sans,
+} from "next/font/google";
 
 import "./globals.css";
 

@@ -25,6 +25,10 @@
 }
 
 @layer base {
+  h1 {
+    @apply font-luckiest-guy;
+  }
+
   h2 {
     @apply font-passion-one font-bold text-6xl;
   }
@@ -34,13 +38,12 @@
   }
 
   h4 {
-    @apply font-space-mono font-bold;
-  }
-
-  h5 {
     @apply font-space-mono;
   }
 
+  p {
+    @apply font-work-sans;
+  }
 }
 
 body {
@@ -61,9 +64,6 @@ body {
 .font-luckiest {
   font-family: var(--font-luckiest-guy);
 }
-
-
-
 
 /** 
   h1

@@ -1,4 +1,7 @@
 import * as NBAIcons from "react-nba-logos";
+import BackButton from "../Buttons/Back";
+import MetricContainer from "./MetricContainer";
+import PlayerInfo from "./PlayerInfo";
 
 interface CardBackProps {
     backgroundColor?: string;
@@ -11,7 +14,7 @@ export default function CardBack({
     backgroundColor,
     borderColor,
     teamAbbreviation,
-    playerName
+    playerName,
 }: CardBackProps) {
     const TeamIcon = NBAIcons[teamAbbreviation]; // cant use ? or else its going to cmplin keep in mind
 
@@ -44,11 +47,14 @@ export default function CardBack({
             rounded-br-[20px]"
                 style={{ borderColor: borderColor }}
             >
+                <BackButton />
                 <div className="size-25">
                     <TeamIcon />
                 </div>
                 <h3 style={{ color: borderColor }}>{playerName} </h3>
 
+                < MetricContainer />
+                <PlayerInfo color={borderColor} />
             </div>
         </section>
     );

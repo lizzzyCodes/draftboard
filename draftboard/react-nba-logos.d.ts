@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { ReactNode } from 'react'
-import { IconBaseProps } from 'react-icons'
+import * as React from "react";
+import { ReactNode } from "react";
+import { IconBaseProps } from "react-icons";
 
-declare module 'react-nba-logos' {
+declare module "react-nba-logos" {
   export interface NBASVGProps extends React.SVGProps<SVGSVGElement> {
     size?: string | number;
   }
@@ -39,6 +39,6 @@ declare module 'react-nba-logos' {
   export const WAS: React.FC<NBASVGProps>;
 }
 
-declare module 'react-icons/lib/index' {
-  export type IconType = (props: IconBaseProps) => ReactNode
+declare module "react-icons/lib/index" {
+  export type IconType = (props: IconBaseProps) => ReactNode;
 }
