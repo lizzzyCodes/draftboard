@@ -1,14 +1,12 @@
 import Card from "./components/PlayerCard/Card";
-import SearchBar from "./components/SearchBar/SearchBar";
 import CardBack from "./components/PlayerCard/CardBack";
 import PrimaryButton from "./components/Buttons/PrimaryButton";
-import SecondaryButton from "./components/Buttons/SecondaryButton";
-import BackButton from "./components/Buttons/Back";
+import NavBar from "./components/NavBar/NavBar";
 
 export default function Home() {
   return (
     <>
-      <SearchBar />
+      <NavBar />
       <PrimaryButton text={"COMPARE PLAYERS"} />
       <CardBack
         backgroundColor="#1D428A"
@@ -16,14 +14,14 @@ export default function Home() {
         teamAbbreviation="GSW"
         playerName="STEPHEN CURRY"
       />
-      {/* <Card
+      <Card
         backgroundColor="#1D428A"
         borderColor="#FFC72C"
         img="/player-images/lebron.jpg"
         playerName="VICTOR WEMBANYAMA"
         team="WARRIORS"
         teamAbbreviation="GSW"
-      /> */}
+      />
     </>
   );
 }

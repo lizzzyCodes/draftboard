@@ -10,6 +10,7 @@
   --color-foreground: var(--foreground);
   --font-oswald: var(--font-oswald);
   --font-space-mono: var(--font-space-mono);
+  --font-league-gothic: var(--font-league-gothic);
   /* numbers + PPG, RPG subheadings*/
   --font-work-sans: var(--font-work-sans);
   /* p tag*/
@@ -26,7 +27,7 @@
 
 @layer base {
   h1 {
-    @apply font-luckiest-guy;
+    @apply font-league-gothic;
   }
 
   h2 {

@@ -5,9 +5,16 @@ import {
   Luckiest_Guy,
   Space_Mono,
   Work_Sans,
+  League_Gothic,
 } from "next/font/google";
 
 import "./globals.css";
+
+const leagueGothic = League_Gothic({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-league-gothic",
+});
 
 const workSans = Work_Sans({
   weight: ["400", "700"],
@@ -52,7 +59,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${oswald.variable} ${passionOne.variable} ${luckiestGuy.variable} ${spaceMono.variable} ${workSans.variable} h-full antialiased`}
+      className={`${oswald.variable} ${passionOne.variable} ${luckiestGuy.variable} ${spaceMono.variable} ${workSans.variable} ${leagueGothic.variable} f h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

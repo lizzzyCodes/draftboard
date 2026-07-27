@@ -6,7 +6,7 @@ export default function CardHeader() {
   return (
     <section className="flex justify-center items-baseline gap-2 pt-1">
       <div className="flex gap-2">{Stars}</div>
-      <h1 className="flex items-center text-black">
+      <div className="flex items-center text-black font-luckiest-guy">
         NBA HO
         <Image
           src="/player-images/basketball.svg"
@@ -16,7 +16,7 @@ export default function CardHeader() {
           alt="Basketball"
         />
         PS
-      </h1>
+      </div>
       <div className="flex gap-2">{Stars}</div>
     </section>
   );
