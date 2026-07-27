@@ -6,7 +6,7 @@ export default function YearTable() {
         <>
             <TrophyIcon size={10} />
             <h4 style={{ fontWeight: "bold", fontSize: "8px" }}>CAREER</h4>
-            <table className="table-auto">
+            <table className="table-auto font-space-mono">
                 <thead>
                     <tr>
                         <th>YEAR</th>

@@ -48,7 +48,7 @@ export default function CardBack({
             rounded-br-[20px]"
                 style={{ borderColor: borderColor }}
             >
-                <BackButton />
+
                 <div className="size-25">
                     <TeamIcon />
                 </div>

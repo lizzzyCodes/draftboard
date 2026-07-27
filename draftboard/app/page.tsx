@@ -10,7 +10,6 @@ export default function Home() {
     <>
       <SearchBar />
       <PrimaryButton text={"COMPARE PLAYERS"} />
-      <BackButton />
       <CardBack
         backgroundColor="#1D428A"
         borderColor="#FFC72C"
