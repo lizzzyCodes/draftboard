@@ -5,6 +5,7 @@ import PlayerInfo from "./PlayerInfo";
 import PlayerBio from "./PlayerBio";
 import ScoutReportsSection from "./ScoutReports";
 import CardFooter from "./CardFooter";
+import Headshot from "./Headshot";
 
 interface CardBackProps {
   backgroundColor?: string;
