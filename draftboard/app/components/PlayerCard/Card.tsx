@@ -4,6 +4,8 @@ import PlayerName from "./PlayerName";
 import Team from "./TeamName";
 import * as NBAIcons from "react-nba-logos";
 
+// card takes in the data that gets deconstructed? 
+// first_name, last_name, team ABRV (for color + for logo), team name
 interface CardProps {
   backgroundColor: string;
   borderColor: string;
