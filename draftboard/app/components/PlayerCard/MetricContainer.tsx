@@ -20,8 +20,8 @@ export default function MetricsContainer({ latestSeasonStats }: MetricProps) {
   ];
 
 
-  return (
-    <div>
+  {/*return (
+     <div>
       <div
         className="outline-2 outline-offset-2 outline-solid rounded-lg"
         // style={{ color: color }}
@@ -38,6 +38,25 @@ export default function MetricsContainer({ latestSeasonStats }: MetricProps) {
         </h4>
       </div>
 
+    </div> */}
+  return (
+    <div className="grid grid-cols-3 gap-3">
+      {metrics.map(({ label, value, icon: Icon }) => (
+        <div
+          key={label}
+          className="flex flex-col items-center justify-center gap-1 rounded-2xl bg-gray-50 py-5"
+        >
+          <div className="flex items-center gap-1.5 text-gray-400">
+            <Icon size={16} strokeWidth={2} />
+            <span className="text-sm font-semibold tracking-widest">
+              {label}
+            </span>
+          </div>
+          <span className="font-mono text-4xl font-bold tracking-tight text-gray-900">
+            {value}
+          </span>
+        </div>
+      ))}
     </div>
-  );
+  )
 } 
