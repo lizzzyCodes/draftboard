@@ -10,6 +10,7 @@ interface PlayerMetricProps {
   draft_year: number;
   jersey: number;
   color?: string;
+  secondaryColor?: string;
 }
 
 export default function PlayerMetric({
@@ -20,6 +21,7 @@ export default function PlayerMetric({
   draft_year,
   jersey,
   color,
+  secondaryColor,
 }: PlayerMetricProps) {
 
   const info = [
@@ -51,7 +53,7 @@ export default function PlayerMetric({
 
   return (
     <>
-      <PlayerHeadshot img={'/player-images/lebronheadshot.avif'} position={position} color={color} />
+      <PlayerHeadshot img={'/player-images/lebronheadshot.avif'} position={position} color={secondaryColor} secondaryColor={color} />
       {info.map((item) => (
         <div key={item.label}>
           <h4 style={{ color: color, fontWeight: "bold" }}>

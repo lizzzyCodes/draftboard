@@ -72,14 +72,20 @@ export default function CardBack({
 import { CardProps } from "./Card";
 import { getPlayerStats } from '@/lib/api/playerStats'
 
+interface CardBackProps extends CardProps {
+  primaryColor: string;
+  secondaryColor: string;
+}
+
+
 export default async function CardBack({
-  player
-}: CardProps) {
+  player, primaryColor, secondaryColor
+}: CardBackProps) {
   const playerStats = await getPlayerStats({ nba_player_id: 2544 }); // harcoded for now
   const latestStats = await getLatestSeason(playerStats.season_stats) // gets the latest stats for 2025-2026 season
-  const { team_abbrv: ABRV } = playerStats;
+  // const { team_abbrv: ABRV } = playerStats;
   const { first_name, last_name, team_name, team_abbrv, birthday, draft_year, height, jersey, position, weight } = player;
-  const TeamIcon = NBAIcons[ABRV as keyof typeof NBAIcons];
+  const TeamIcon = NBAIcons[team_abbrv as keyof typeof NBAIcons];
 
   return (
     <section
@@ -93,7 +99,7 @@ export default async function CardBack({
         relative
       "
       style={{
-        borderColor: "#FFFFFF", // this is background color the rest is border
+        borderColor: primaryColor, // this is background color the rest is border
       }}
     >
       <div
@@ -106,18 +112,18 @@ export default async function CardBack({
             rounded-tr-[20px]
             rounded-bl-[20px]
             rounded-br-[20px]"
-        style={{ borderColor: "#fec524", }}
+        style={{ borderColor: secondaryColor }}
       >
-        <h3 style={{ borderColor: "#fec524" }}>{fullName(first_name, last_name).toUpperCase()} </h3>
-        <PlayerInfo birthday={birthday} height={height} weight={weight} position={position} draft_year={draft_year} jersey={jersey} color={"#fec524"} />
+        <h3 style={{ borderColor: secondaryColor, color: secondaryColor }}>{fullName(first_name, last_name).toUpperCase()} </h3>
+        <PlayerInfo birthday={birthday} height={height} weight={weight} position={position} draft_year={draft_year} jersey={jersey} color={primaryColor} secondaryColor={secondaryColor} />
         <MetricContainer latestSeasonStats={latestStats} />
         {/**    <MetricContainer latestSeasonStats={playerStats} color={"#fec524"} /> */}
         <YearTable />
         <PlayerBio
-          color={"#fec524"}
+          color={secondaryColor}
           bio="Four-time champion and the league's all-time scoring leader. Still running the offense at an elite level deep into his twenties year."
         />
-        <ScoutReportsSection color={"#fec524"} />
+        <ScoutReportsSection color={secondaryColor} />
         <CardFooter />
       </div>
     </section>

@@ -77,7 +77,7 @@ export default async function Card({ player }: CardProps) {
           <Team team={team_name} />
         </div>
       </AnimatedCard >
-      <CardBack player={player} />
+      <CardBack player={player} primaryColor={color} secondaryColor={secondaryColor} />
     </>
   );
 }

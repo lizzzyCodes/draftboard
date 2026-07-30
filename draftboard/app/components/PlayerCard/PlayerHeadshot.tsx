@@ -4,20 +4,20 @@ interface PlayerHeadshotProps {
     img: string;
     position: string;
     color?: string;
-    frameColor?: string;
+    secondaryColor?: string;
 }
 
 export function PlayerHeadshot({
     img,
     position,
-    color = "#B7A7C9",       // background color 
-    frameColor = "#C0392B",  // main red
+    color,      // background color 
+    secondaryColor, // main red
 }: PlayerHeadshotProps) {
     return (
         <div className="relative w-[200px]">
             <div
                 className="overflow-hidden rounded-t-[90px] rounded-b-md border-[5px]"
-                style={{ borderColor: frameColor, backgroundColor: color }}
+                style={{ borderColor: secondaryColor, backgroundColor: color }}
             >
                 <Image
                     src={img}
@@ -29,7 +29,7 @@ export function PlayerHeadshot({
             </div>
             <div
                 className="absolute -bottom-3 inset-x-0 rounded py-1 text-center font-bold tracking-wide text-white"
-                style={{ backgroundColor: frameColor }}
+                style={{ backgroundColor: secondaryColor }}
             >
                 <h4>{position.toUpperCase()}</h4>
             </div>
