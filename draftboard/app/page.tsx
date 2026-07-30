@@ -12,12 +12,6 @@ export default async function Home() {
   return (
     <>
       <NavBar />
-      <CardBack
-        backgroundColor="#1D428A"
-        borderColor="#FFC72C"
-        teamAbbreviation="GSW"
-        playerName="STEPHEN CURRY"
-      />
 
       {players.map((player: Player) => (
         <Card key={player.id} player={player} />

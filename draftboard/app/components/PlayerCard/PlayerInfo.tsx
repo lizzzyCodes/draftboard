@@ -1,32 +1,65 @@
-//                 <h4>BORN: JANE, 21, 1962, - LAGOS, NIGERIA</h4>
-
-import { collectStagedSegmentData } from "next/dist/server/app-render/instant-validation/instant-validation";
-
-export const mockPlayerInfo = {
-  id: "fakeId",
-  born: "Jan. 21, 1964 - Lagos, Nigeria",
-  height: "7-0",
-  weight: "250",
-  college: "Houston",
-  drafted: "1st Rd-Pick 1 - Houston, 19843",
-  jersey: "#34",
-};
-
-interface PlayerInfoProps {
+interface PlayerMetricProps {
+  birthday: string;
+  height: string;
+  weight: string;
+  position: string;
+  draft_year: number;
+  jersey: number;
   color?: string;
 }
 
-export default function PlayerInfo({ color }: PlayerInfoProps) {
+export default function PlayerMetric({
+  birthday,
+  height,
+  weight,
+  position,
+  draft_year,
+  jersey,
+  color,
+}: PlayerMetricProps) {
+
+  const info = [
+    {
+      label: "Born",
+      value: birthday,
+    },
+    {
+      label: "Height",
+      value: height,
+    },
+    {
+      label: "Weight",
+      value: weight,
+    },
+    {
+      label: "Position",
+      value: position,
+    },
+    {
+      label: "Drafted",
+      value: draft_year,
+    },
+    {
+      label: "Jersey",
+      value: `#${jersey}`,
+    },
+  ];
+
   return (
     <>
-      {Object.entries(mockPlayerInfo).map(([key, value]) => {
-        return (
+      {info.map((item) => (
+        <div key={item.label}>
           <h4 style={{ color: color, fontWeight: "bold" }}>
-            {/** TODO: if key === jersey then append # wont add for now bc still waiting on more data */}
-            {key.toUpperCase()}{" "}
+            {item.label.toUpperCase()}
           </h4>
-        );
-      })}
+
+          <p>
+            {item.value}
+          </p>
+
+
+        </div>
+      ))}
     </>
   );
 }
