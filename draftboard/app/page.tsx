@@ -1,14 +1,16 @@
 import Card from "./components/PlayerCard/Card";
-import CardBack from "./components/PlayerCard/CardBack";
-import PrimaryButton from "./components/Buttons/PrimaryButton";
 import NavBar from "./components/NavBar/NavBar";
 import Tray from "./components/Tray/Tray";
 import { getPlayers } from "@/lib/api/players";
-import { Player } from "../app/components/PlayerCard/types"
+import type { Player } from "@/lib/api/types/player";
+import { getTeamDetails } from "@/lib/api/teamColors";
 
 export default async function Home() {
   const players = await getPlayers();
-  console.log(players, ' players here [ec]')
+  const teamDetails = await getTeamDetails({ team_abbrv: "LAL" });
+
+  console.log(teamDetails, 'here are the team details [ec]')
+
   return (
     <>
       <NavBar />

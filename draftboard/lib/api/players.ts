@@ -1,5 +1,4 @@
-const API_URL = "http://127.0.0.1:8000";
-
+import { API_URL } from "./const";
 
 export async function getPlayers() {
 
@@ -15,31 +14,3 @@ export async function getPlayers() {
 
     return response.json();
 }
-
-/**
- * 
- * import { getPlayers } from "@/lib/api/players";
-
-
-export default async function Home() {
-
-    const players = await getPlayers();
-
-
-    return (
-        <main>
-
-            {players.map((player:any)=>(
-                <div key={player.id}>
-
-                    {player.first_name}
-                    {" "}
-                    {player.last_name}
-
-                </div>
-            ))}
-
-        </main>
-    );
-}
- */

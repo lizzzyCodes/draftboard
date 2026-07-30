@@ -6,7 +6,9 @@ import PlayerBio from "./PlayerBio";
 import ScoutReportsSection from "./ScoutReports";
 import CardFooter from "./CardFooter";
 import Headshot from "./Headshot";
-import { fullName } from "@/lib/api/utils";
+import { fullName } from "@/lib/api/utils/utils";
+import { getLatestSeason } from "@/lib/api/utils/stats";
+import YearTable from "./YearTable";
 
 /* interface CardBackProps {
   backgroundColor?: string;
@@ -68,10 +70,13 @@ export default function CardBack({
 } */
 
 import { CardProps } from "./Card";
+import { getPlayerStats } from '@/lib/api/playerStats'
 
-export default function CardBack({
+export default async function CardBack({
   player
 }: CardProps) {
+  const playerStats = await getPlayerStats({ nba_player_id: 2544 }); // harcoded for now
+  const latestStats = getLatestSeason(playerStats.season_stats) // gets the latest stats for 2025-2026 season
 
   const { first_name, last_name, team_name, team_abbrv, birthday, draft_year, height, jersey, position, weight } = player;
 
@@ -109,10 +114,12 @@ export default function CardBack({
         </div>
         <h3 style={{ borderColor: "#fec524" }}>{fullName(first_name, last_name).toUpperCase()} </h3>
         <PlayerInfo birthday={birthday} height={height} weight={weight} position={position} draft_year={draft_year} jersey={jersey} color={"#fec524"} />
-        <MetricContainer color={"#fec524"} />
+        <MetricContainer latestSeasonStats={latestStats} />
+        {/**    <MetricContainer latestSeasonStats={playerStats} color={"#fec524"} /> */}
+        <YearTable />
         <PlayerBio
           color={"#fec524"}
-          bio="Four-time champion and the league's all-time leading scorer. Still running the offense at an elite level deep into his twenties year."
+          bio="Four-time champion and the league's all-time scoring leader. Still running the offense at an elite level deep into his twenties year."
         />
         <ScoutReportsSection color={"#fec524"} />
         <CardFooter />

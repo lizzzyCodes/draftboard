@@ -1,4 +1,4 @@
-import { formatBirthday } from "@/lib/api/utils";
+import { formatBirthday } from "@/lib/api/utils/utils";
 
 interface PlayerMetricProps {
   birthday: string;

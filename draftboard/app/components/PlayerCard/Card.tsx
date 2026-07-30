@@ -3,7 +3,7 @@ import Image from "next/image";
 import PlayerName from "./PlayerName";
 import Team from "./TeamName";
 import * as NBAIcons from "react-nba-logos";
-import { Player } from "./types";
+import { Player } from "@/lib/api/types/player";
 import CardBack from './CardBack'
 
 export interface CardProps {
