@@ -6,6 +6,7 @@ import * as NBAIcons from "react-nba-logos";
 import { Player } from "@/lib/api/types/player";
 import CardBack from './CardBack'
 import { getTeamDetails } from "@/lib/api/teamColors";
+import AnimatedCard from "./AnimatedCard";
 
 export interface CardProps {
   player: Player;
@@ -21,23 +22,8 @@ export default async function Card({ player }: CardProps) {
   const TeamIcon = NBAIcons[team_abbrv as keyof typeof NBAIcons];
   return (
     <>
-      <section
-        className="
-        w-[320px]
-        h-[450px]
-        rounded-tl-[20px]
-        rounded-tr-[20px]
-        rounded-bl-[40px]
-        rounded-br-none
-        p-[5px]
-        overflow-hidden
-        relative
-      "
-        style={{
-          backgroundColor: color // primary
-
-        }}
-      >
+      <AnimatedCard color={color}
+        secondaryColor={secondaryColor}>
         <div
           className="
           h-[90%]
@@ -90,8 +76,7 @@ export default async function Card({ player }: CardProps) {
           {/** -mt moves the container up */}
           <Team team={team_name} />
         </div>
-      </section>
-
+      </AnimatedCard >
       <CardBack player={player} />
     </>
   );
