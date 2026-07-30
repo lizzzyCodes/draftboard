@@ -3,27 +3,19 @@ import Image from "next/image";
 import PlayerName from "./PlayerName";
 import Team from "./TeamName";
 import * as NBAIcons from "react-nba-logos";
+import { Player } from "./types";
 
 // card takes in the data that gets deconstructed? 
 // first_name, last_name, team ABRV (for color + for logo), team name
 interface CardProps {
-  backgroundColor: string;
-  borderColor: string;
-  img: string;
-  playerName: string;
-  team: string;
-  teamAbbreviation: keyof typeof NBAIcons;
+  player: Player;
+
 }
 
-export default function Card({
-  backgroundColor,
-  borderColor,
-  img,
-  playerName,
-  team,
-  teamAbbreviation,
-}: CardProps) {
-  const TeamIcon = NBAIcons[teamAbbreviation];
+export default function Card({ player }: CardProps) {
+  const { id, first_name, last_name, team_name, team_abbrv } = player;
+
+  const TeamIcon = NBAIcons[team_abbrv as keyof typeof NBAIcons];
   return (
     <section
       className="
@@ -38,7 +30,9 @@ export default function Card({
         relative
       "
       style={{
-        backgroundColor,
+        // backgroundColor,
+        backgroundColor: '#0e2240'
+
       }}
     >
       <div
@@ -62,20 +56,20 @@ export default function Card({
             rounded-tr-[16px]
             rounded-bl-[16px]
             rounded-br-none"
-          style={{ borderColor: borderColor }}
+          style={{ borderColor: "#fec524", }}
         >
           <CardHeader />
 
           <hr className="border-t-[1.5px] border-white" />
           <div className="flex-1 min-h-0 relative w-full">
-            <Image src={img} alt={playerName} fill className="object-cover" />
+            <Image src={'/public/player-images/Steph.png'} alt={`${first_name} ${last_name}`} fill className="object-cover" />
           </div>
 
           <hr className="border-t-[1.5px] border-white" />
 
           <div className="flex justify-center items-center pl-[95px] pr-4  min-w-0">
             <div className="truncate whitespace-nowrap">
-              <PlayerName name={playerName} />
+              <PlayerName name={`${first_name} ${last_name}`} />
             </div>
           </div>
         </div>
@@ -83,14 +77,14 @@ export default function Card({
 
       <div
         className="absolute bottom-0 left-0 z-50 border-2 bg-white rounded-full size-25 flex items-center justify-center overflow-hidden"
-        style={{ borderColor: borderColor }}
+        style={{ borderColor: "#fec524", }}
       >
         <TeamIcon className="w-full h-full p-2" />
       </div>
 
       <div className="absolute right-4 -mt-2">
         {/** -mt moves the container up */}
-        <Team team={team} />
+        <Team team={team_name} />
       </div>
     </section>
   );
