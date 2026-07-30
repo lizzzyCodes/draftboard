@@ -1,3 +1,5 @@
+import { formatBirthday } from "@/lib/api/utils";
+
 interface PlayerMetricProps {
   birthday: string;
   height: string;
@@ -21,7 +23,7 @@ export default function PlayerMetric({
   const info = [
     {
       label: "Born",
-      value: birthday,
+      value: formatBirthday(birthday),
     },
     {
       label: "Height",
@@ -52,10 +54,9 @@ export default function PlayerMetric({
           <h4 style={{ color: color, fontWeight: "bold" }}>
             {item.label.toUpperCase()}
           </h4>
-
-          <p>
+          <h4>
             {item.value}
-          </p>
+          </h4>
 
 
         </div>

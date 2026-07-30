@@ -6,8 +6,6 @@ import * as NBAIcons from "react-nba-logos";
 import { Player } from "./types";
 import CardBack from './CardBack'
 
-// card takes in the data that gets deconstructed? 
-// first_name, last_name, team ABRV (for color + for logo), team name
 export interface CardProps {
   player: Player;
 }

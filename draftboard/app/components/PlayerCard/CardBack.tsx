@@ -74,7 +74,6 @@ export default function CardBack({
 
   const { first_name, last_name, team_name, team_abbrv, birthday, draft_year, height, jersey, position, weight } = player;
 
-  console.log(birthday, 'birthday here [ec top')
   const TeamIcon = NBAIcons[team_abbrv as keyof typeof NBAIcons];
 
   return (
