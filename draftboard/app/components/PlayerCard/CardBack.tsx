@@ -6,6 +6,7 @@ import PlayerBio from "./PlayerBio";
 import ScoutReportsSection from "./ScoutReports";
 import CardFooter from "./CardFooter";
 import Headshot from "./Headshot";
+import { fullName } from "@/lib/api/utils";
 
 /* interface CardBackProps {
   backgroundColor?: string;
@@ -106,7 +107,7 @@ export default function CardBack({
         <div className="size-25">
           {/*<TeamIcon />*/}
         </div>
-        <h3 style={{ borderColor: "#fec524" }}>{`${first_name} ${last_name}`} </h3>
+        <h3 style={{ borderColor: "#fec524" }}>{fullName(first_name, last_name).toUpperCase()} </h3>
         <PlayerInfo birthday={birthday} height={height} weight={weight} position={position} draft_year={draft_year} jersey={jersey} color={"#fec524"} />
         <MetricContainer color={"#fec524"} />
         <PlayerBio
