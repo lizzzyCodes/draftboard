@@ -76,11 +76,10 @@ export default async function CardBack({
   player
 }: CardProps) {
   const playerStats = await getPlayerStats({ nba_player_id: 2544 }); // harcoded for now
-  const latestStats = getLatestSeason(playerStats.season_stats) // gets the latest stats for 2025-2026 season
-
+  const latestStats = await getLatestSeason(playerStats.season_stats) // gets the latest stats for 2025-2026 season
+  const { team_abbrv: ABRV } = playerStats;
   const { first_name, last_name, team_name, team_abbrv, birthday, draft_year, height, jersey, position, weight } = player;
-
-  const TeamIcon = NBAIcons[team_abbrv as keyof typeof NBAIcons];
+  const TeamIcon = NBAIcons[ABRV as keyof typeof NBAIcons];
 
   return (
     <section
@@ -94,7 +93,7 @@ export default async function CardBack({
         relative
       "
       style={{
-        borderColor: "#fec524", // this is background color the rest is border
+        borderColor: "#FFFFFF", // this is background color the rest is border
       }}
     >
       <div
@@ -109,9 +108,6 @@ export default async function CardBack({
             rounded-br-[20px]"
         style={{ borderColor: "#fec524", }}
       >
-        <div className="size-25">
-          {/*<TeamIcon />*/}
-        </div>
         <h3 style={{ borderColor: "#fec524" }}>{fullName(first_name, last_name).toUpperCase()} </h3>
         <PlayerInfo birthday={birthday} height={height} weight={weight} position={position} draft_year={draft_year} jersey={jersey} color={"#fec524"} />
         <MetricContainer latestSeasonStats={latestStats} />

@@ -1,4 +1,6 @@
 import { formatBirthday } from "@/lib/api/utils/utils";
+import Image from "next/image";
+import { PlayerHeadshot } from './PlayerHeadshot';
 
 interface PlayerMetricProps {
   birthday: string;
@@ -49,6 +51,7 @@ export default function PlayerMetric({
 
   return (
     <>
+      <PlayerHeadshot img={'/player-images/lebronheadshot.avif'} position={position} color={color} />
       {info.map((item) => (
         <div key={item.label}>
           <h4 style={{ color: color, fontWeight: "bold" }}>
@@ -57,10 +60,9 @@ export default function PlayerMetric({
           <h4>
             {item.value}
           </h4>
-
-
         </div>
       ))}
+
     </>
   );
 }

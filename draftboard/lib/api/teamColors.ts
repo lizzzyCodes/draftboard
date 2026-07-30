@@ -12,16 +12,18 @@ import { API_URL } from "./const";
   "logo_url": "string"
  */
 
-export async function getTeamDetails({ team_abbrv }: { team_abbrv?: string }) {
+export async function getTeamDetails(team_abbrv: string) {
+    try {
+        const response = await fetch(`${API_URL}/teams/${team_abbrv}`);
 
-    const response = await fetch(
-        `${API_URL}/teams/${team_abbrv}`
-    );
+        if (!response.ok) {
+            throw new Error("Failed to fetch team data");
+        }
 
-    if (!response.ok) {
-        throw new Error("Failed to team data");
+        return response.json();
+
+    } catch (error) {
+        console.error("API for team colors failed", error);
+        throw error; // important
     }
-
-
-    return response.json();
 }
