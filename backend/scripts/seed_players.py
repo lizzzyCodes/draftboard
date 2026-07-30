@@ -1,26 +1,9 @@
 # hard coded players for now
 # future can get all NBA PLAYERS
-import sys 
-from sqlalchemy import delete
 from app.models.players import Player
-
 from app.database import SessionLocal
 from app.services.nba_client import get_player_info
-
-    
-
-PRIMARY_SEASON = "2025-26"
-FALLBACK_SEASONS = ["2024-25", "2023-24"] 
-
-NBA_PLAYER_IDS = [
-    2544,     # LeBron James
-    201939,  # Stephen Curry
-    203999,  # Nikola Jokić
-]
-
-
-
-
+from app.constants import NBA_PLAYER_IDS
 
 def seed_players():
 

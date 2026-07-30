@@ -1,7 +1,11 @@
 from pydantic import BaseModel
+from app.schemas.teams import TeamResponse
+from app.schemas.season_stats import SeasonStatResponse
+from app.schemas.combine import CombineResponse
 
 class PlayerResponse(BaseModel):
     id: int
+    nba_player_id: int
     first_name: str
     last_name: str
     height: str
@@ -15,3 +19,8 @@ class PlayerResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+class PlayerDetailResponse(PlayerResponse):
+    team: TeamResponse | None = None
+    season_stats: list[SeasonStatResponse] = []
+    combine: CombineResponse | None = None
