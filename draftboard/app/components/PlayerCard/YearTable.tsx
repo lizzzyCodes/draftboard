@@ -1,4 +1,4 @@
-import type { SeasonStats } from "./types";
+import type { SeasonStats } from "@/lib/api/types/types";
 import TableDivider from "./TableDivider";
 import { COLUMNS } from "./CardBack/SeasonColumns";
 

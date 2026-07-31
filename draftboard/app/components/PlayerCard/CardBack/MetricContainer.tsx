@@ -1,6 +1,6 @@
 import { Flame, Shield, Zap, Target, TrophyIcon } from "lucide-react";
 import { formatPercent } from "@/lib/api/utils/utils";
-import type { SeasonStats } from "./types";
+import type { SeasonStats } from "@/lib/api/types/types";
 
 
 interface PlayerStatsProps {

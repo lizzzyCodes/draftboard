@@ -1,4 +1,4 @@
-import { SeasonStats } from "@/app/components/PlayerCard/types";
+import type { SeasonStats } from "../types/types";
 
 export function getLatestSeason(seasons: SeasonStats[]) {
     if (!seasons.length) return null;

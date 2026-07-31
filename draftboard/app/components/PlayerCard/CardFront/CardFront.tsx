@@ -4,15 +4,22 @@ import Image from "next/image";
 import PlayerName from "../PlayerName";
 import Team from "../TeamName";
 import * as NBAIcons from "react-nba-logos";
-import type { CardFrontProps } from "../types";
+import type { Player, PlayerDetails } from "@/lib/api/types/types";
 
-export default function CardFront({ player, teamDetails }: CardFrontProps) {
+interface CardFrontProps {
+    player: Player;
+    playerDetails: PlayerDetails | null;
+}
+
+export default function CardFront({ player, playerDetails }: CardFrontProps) {
     const { first_name, last_name, team_name, team_abbrv } = player;
     const TeamIcon = NBAIcons[team_abbrv as keyof typeof NBAIcons];
-    if (!teamDetails) {
+
+    if (!playerDetails) {
         return null;
     }
-    const { alternate_color } = teamDetails;
+    const { team } = playerDetails;
+    const { alternate_color } = team;
 
     return (
         <>

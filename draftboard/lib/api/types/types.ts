@@ -1,4 +1,6 @@
-export interface Player {
+
+
+export interface Player { // works now 
     id: number;
     nba_player_id: number;
     first_name: string;
@@ -11,9 +13,6 @@ export interface Player {
     team_name: string;
     team_abbrv: string;
     draft_year: number;
-    team: TeamDetails;
-    season_stats: SeasonStats[];
-    combine: Combine | null;
 }
 
 export interface TeamDetails {
@@ -31,27 +30,21 @@ export interface SeasonStats {
     season: string;
     season_type: "Regular Season" | "Playoffs";
     team: string;
-
     gp: number;
-
     pts: number;
     reb: number;
     ast: number;
     stl: number;
     blk: number;
-
     fgm: number;
     fga: number;
     fg_pct: number;
-
     fg3m: number;
     fg3a: number;
     fg3_pct: number;
-
     ftm: number;
     fta: number;
     ft_pct: number;
-
     ppg: number;
     rpg: number;
     apg: number;
@@ -61,32 +54,20 @@ export interface Combine {
     id: number;
     nba_player_id: number;
     draft_year: string;
-
     max_vertical: number | null;
     standing_vertical: number | null;
     lane_agility: number | null;
     sprint: number | null;
     bench_press: number | null;
-
     wingspan: number;
     standing_reach: number;
-
     height_w_shoes: number | null;
     weight: number;
 }
 
-export interface CardContainerProps {
-    player: Player;
-}
-
-export interface CardProps {
-    player: Player;
-    teamDetails?: TeamDetails | null;
-    playerStats: Player | null;
-}
-
-export interface CardFrontProps {
-    player: Player;
-    teamDetails?: TeamDetails | null;
+export interface PlayerDetails extends Player { // player details per 1 NBA ID
+    team: TeamDetails;
+    season_stats: SeasonStats[];
+    combine: Combine | null;
 }
 

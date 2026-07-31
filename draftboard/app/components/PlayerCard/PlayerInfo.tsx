@@ -1,37 +1,34 @@
 import { fullName, formatBirthday } from "@/lib/api/utils/utils";
 import { displayValue } from "@/lib/api/utils/utils";
 import { PlayerHeadshot } from './PlayerHeadshot';
+import type { Player, Combine } from "@/lib/api/types/types";
 
-export interface PlayerMetricProps {
-  first_name: string;
-  last_name: string;
-  birthday: string;
-  height: string;
-  weight: string;
-  position: string;
-  draft_year: number;
-  jersey: number;
-  wingspan: string;
-  standing_reach: string;
+interface PlayerMetricProps {
+  player: Player;
+  combine: Combine | null;
   color?: string;
   secondaryColor?: string;
-
 }
 
 export default function PlayerMetric({
-  first_name,
-  last_name,
-  birthday,
-  height,
-  weight,
-  position,
-  draft_year,
-  jersey,
+  player,
+  combine,
   color,
   secondaryColor,
-  wingspan,
-  standing_reach,
 }: PlayerMetricProps) {
+  const {
+    first_name,
+    last_name,
+    birthday,
+    height,
+    weight,
+    position,
+    draft_year,
+    jersey,
+  } = player;
+
+  const wingspan = combine?.wingspan;
+  const standing_reach = combine?.standing_reach;
 
   const info = [
     {
@@ -100,9 +97,7 @@ export default function PlayerMetric({
           ))}
         </div>
       </div>
-
     </>
-
   );
 }
 

@@ -1,9 +1,12 @@
-
-// card container that fetches all external data 
-import { CardContainerProps, Player } from "./types";
 import { getTeamDetails } from "@/lib/api/teamColors";
 import Card from "./Card";
 import { getPlayerStats } from "@/lib/api/playerStats";
+import type { Player } from "@/lib/api/types/types";
+
+interface CardContainerProps {
+    player: Player;
+}
+
 
 
 export default async function CardContainer({ player }: CardContainerProps) {
