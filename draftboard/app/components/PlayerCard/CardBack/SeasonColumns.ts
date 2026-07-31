@@ -12,5 +12,4 @@ export const COLUMNS: { key: ColumnKey; label: string }[] = [
     { key: "stl", label: "STL" },
     { key: "blk", label: "BLK" },
     { key: "ppg", label: "PPG" },
-    { key: "avg", label: "AVG" },
 ];
