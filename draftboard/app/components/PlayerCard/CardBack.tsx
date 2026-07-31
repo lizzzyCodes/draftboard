@@ -9,68 +9,10 @@ import Headshot from "./Headshot";
 import { fullName } from "@/lib/api/utils/utils";
 import { getLatestSeason } from "@/lib/api/utils/stats";
 import YearTable from "./YearTable";
-
-/* interface CardBackProps {
-  backgroundColor?: string;
-  borderColor?: string;
-  teamAbbreviation: keyof typeof NBAIcons;
-  playerName?: string;
-}
-
-export default function CardBack({
-  backgroundColor,
-  borderColor,
-  teamAbbreviation,
-  playerName,
-}: CardBackProps) {
-  const TeamIcon = NBAIcons[teamAbbreviation]; // cant use ? or else its going to cmplin keep in mind
-
-  return (
-    <section
-      className="
-        rounded-tl-[20px]
-        rounded-tr-[20px]
-        rounded-bl-[20px]
-        rounded-br-[20px]
-        p-[10px]
-        overflow-hidden
-        relative
-      "
-      style={{
-        backgroundColor,
-      }}
-    >
-      <div
-        className="
-                h-full
-                flex
-                flex-col
-                border-[3px]
-            rounded-tl-[20px]
-            rounded-tr-[20px]
-            rounded-bl-[20px]
-            rounded-br-[20px]"
-        style={{ borderColor: borderColor }}
-      >
-        <div className="size-25">
-          <TeamIcon />
-        </div>
-        <h3 style={{ color: borderColor }}>{playerName} </h3>
-        <PlayerInfo color={borderColor} />
-        <MetricContainer color={borderColor} />
-        <PlayerBio
-          color={borderColor}
-          bio="Four-time champion and the league's all-time leading scorer. Still running the offense at an elite level deep into his twenties year."
-        />
-        <ScoutReportsSection color={borderColor} />
-        <CardFooter />
-      </div>
-    </section>
-  );
-} */
-
+import { TrophyIcon } from "lucide-react";
 import { CardProps } from "./Card";
 import { getPlayerStats } from '@/lib/api/playerStats'
+import { CAREER } from "@/lib/api/const";
 
 interface CardBackProps extends CardProps {
   primaryColor: string;
@@ -87,6 +29,14 @@ export default async function CardBack({
 
   const { first_name, last_name, team_name, team_abbrv, birthday, draft_year, height, jersey, position, weight } = player;
   const TeamIcon = NBAIcons[team_abbrv as keyof typeof NBAIcons];
+
+  const playoffSeason = careerStats.filter(
+    (season: any) => season.season_type === "Playoffs"
+  );
+
+  const regularSeason = careerStats.filter(
+    (season: any) => season.season_type === "Regular Season"
+  );
 
   return (
     <section
@@ -118,7 +68,10 @@ export default async function CardBack({
         <PlayerInfo first_name={first_name} last_name={last_name} birthday={birthday} height={height} weight={weight} position={position} draft_year={draft_year} jersey={jersey} color={primaryColor} secondaryColor={secondaryColor} />
         <MetricContainer latestSeasonStats={latestStats} />
         {/**    <MetricContainer latestSeasonStats={playerStats} color={"#fec524"} /> */}
-        <YearTable careerStats={careerStats} color={primaryColor} secondaryColor={secondaryColor} />
+        <TrophyIcon size={10} />
+        <h4 style={{ fontWeight: "bold", fontSize: "8px" }}>{CAREER}</h4>
+        <YearTable seasonText={"Regular Season"} stats={regularSeason} color={primaryColor} secondaryColor={secondaryColor} />
+        {/* <YearTable seasonText={"Playoffs"} stats={playoffSeason} color={primaryColor} secondaryColor={secondaryColor} /> */}
         <PlayerBio
           color={secondaryColor}
           bio="Four-time champion and the league's all-time scoring leader. Still running the offense at an elite level deep into his twenties year."
