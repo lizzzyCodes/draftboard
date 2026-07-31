@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "vercel-build": "npm install --legacy-peer-deps && next build"
+    "lint": "eslint"
   },
   "dependencies": {
     "@fontsource/luckiest-guy": "^5.3.0",
