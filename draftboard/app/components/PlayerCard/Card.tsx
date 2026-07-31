@@ -10,7 +10,6 @@ export interface CardProps {
 }
 
 export default function Card({ player, teamDetails, playerStats }: CardProps) {
-  console.log(playerStats, '[ec]jere pla')
   if (!teamDetails) {
     return null;
   }

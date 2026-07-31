@@ -3,7 +3,7 @@ import CardHeader from "../CardHeader";
 import Image from "next/image";
 import PlayerName from "../PlayerName";
 import Team from "../TeamName";
-import * as NBAIcons from "react-nba-logos";
+// import * as NBAIcons from "react-nba-logos";
 import type { Player, PlayerDetails } from "@/lib/api/types/types";
 
 interface CardFrontProps {
@@ -13,13 +13,14 @@ interface CardFrontProps {
 
 export default function CardFront({ player, playerDetails }: CardFrontProps) {
     const { first_name, last_name, team_name, team_abbrv } = player;
-    const TeamIcon = NBAIcons[team_abbrv as keyof typeof NBAIcons];
+    // const TeamIcon = NBAIcons[team_abbrv as keyof typeof NBAIcons];
 
     if (!playerDetails) {
         return null;
     }
     const { team } = playerDetails;
     const { alternate_color } = team;
+    console.log(team.logo_url, 'es esta no? [ec]')
 
     return (
         <>
@@ -51,7 +52,14 @@ export default function CardFront({ player, playerDetails }: CardFrontProps) {
                 className="absolute bottom-0 left-0 z-50 border-2 bg-white rounded-full size-25 flex items-center justify-center overflow-hidden"
                 style={{ borderColor: alternate_color ?? undefined }}
             >
-                <TeamIcon className="w-full h-full p-2" />
+                <Image
+                    src={team.logo_url}
+                    alt={`${team.name} logo`}
+                    width={80}
+                    height={80}
+                    className="w-full h-full object-contain p-2"
+                />
+
             </div>
 
             <div className="absolute right-4 -mt-2">
