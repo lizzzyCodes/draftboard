@@ -1,13 +1,14 @@
 import * as NBAIcons from "react-nba-logos";
 import MetricContainer from "./MetricContainer";
-import PlayerInfo from "./PlayerInfo";
-import CardFooter from "./CardFooter";
+import PlayerInfo from "../PlayerInfo";
+import CardFooter from "../CardFooter";
 import { getLatestSeason } from "@/lib/api/utils/stats";
-import YearTable from "./YearTable";
+import YearTable from "../YearTable";
 import { TrophyIcon } from "lucide-react";
-import { getPlayerStats } from '@/lib/api/playerStats'
 import { CAREER } from "@/lib/api/const";
-import type { CardProps } from "./types";
+import type { CardProps } from "../types";
+
+
 
 export default function CardBack({
   player, // birthday, draft_year, nombre, id
@@ -22,7 +23,7 @@ export default function CardBack({
   const wingspan = combine?.wingspan;
   const standing_reach = combine?.standing_reach;
   const latestSeasonStats = getLatestSeason(season_stats);
-
+  console.log(latestSeasonStats, 'e[ec] latest')
   const playoffSeason = season_stats.filter(
     (season: any) => season.season_type === "Playoffs"
   );

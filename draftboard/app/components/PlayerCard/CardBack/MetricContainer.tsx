@@ -3,11 +3,17 @@ import { formatPercent } from "@/lib/api/utils/utils";
 import type { SeasonStats } from "./types";
 
 
-interface MetricProps {
-  latestSeasonStats: SeasonStats;
+interface PlayerStatsProps {
+  latestSeasonStats: SeasonStats | null;
 }
 
-export default function MetricsContainer({ latestSeasonStats }: MetricProps) {
+export default function PlayerStats({
+  latestSeasonStats,
+}: PlayerStatsProps) {
+
+  if (!latestSeasonStats) {
+    return null;
+  }
 
   const { ppg, rpg, apg, fg3_pct, fg_pct, ft_pct } = latestSeasonStats;
 

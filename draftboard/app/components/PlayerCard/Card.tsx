@@ -1,4 +1,5 @@
-import CardHeader from "./CardHeader";
+/*import CardHeader from "./CardHeader";
+
 import Image from "next/image";
 import PlayerName from "./PlayerName";
 import Team from "./TeamName";
@@ -77,5 +78,25 @@ export default function Card({
       </AnimatedCard >
       <CardBack player={player} teamDetails={teamDetails} playerStats={playerStats} />
     </>
+  );
+} */
+
+// Card.tsx
+import CardFront from "./CardFront/CardFront";
+import CardBack from "./CardBack/CardBack";
+import AnimatedCard from "./AnimatedCard";
+import type { CardProps } from "./types";
+
+export default function Card({ player, teamDetails, playerStats }: CardProps) {
+  const { color, alternate_color } = teamDetails;
+
+  return (
+    <AnimatedCard
+      id={player.id.toString()}
+      color={color}
+      secondaryColor={alternate_color}
+      front={<CardFront player={player} teamDetails={teamDetails} />}
+      back={<CardBack player={player} teamDetails={teamDetails} playerStats={playerStats} />}
+    />
   );
 }
