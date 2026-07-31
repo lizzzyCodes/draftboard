@@ -1,5 +1,7 @@
 import Card from "../PlayerCard/Card";
 import { getPlayers } from "@/lib/api/players";
+import ShotChart from "../ShotChart/ShotChart";
+import { getShotData } from "@/lib/api/shot";
 
 // 2 cards
 {/*export default async function Compare() {
@@ -49,15 +51,16 @@ export default async function Compare({
   params: { playerA: string; playerB: string };
 }) {
   const players = await getPlayers();
+  const shotData = await getShotData(2544);
+  console.log(shotData, 'shot data here [ec]')
   const playerA = players[0];
   const playerB = players[1];
-
+  console.log(playerA, playerB, 'players [ec]')
   //const playerA = await getPlayer(params.playerA);
   //const playerB = await getPlayer(params.playerB);
   console.log(playerA, 'playerA [ec]')
   return (
     <>
-      <Card player={playerA} />
       <div className="flex flex-col items-center justify-center flex-1 min-w-[200px]">
         <h4 className="text-xl font-bold tracking-wider text-gray-400 uppercase">
           POINTS
@@ -68,8 +71,7 @@ export default async function Compare({
           <h4 className="text-2xl font-bold">18.2</h4>
         </div>
       </div>
-      <Card player={playerB} />
-      <p> basketball chart here</p>
+
     </>
   );
 }

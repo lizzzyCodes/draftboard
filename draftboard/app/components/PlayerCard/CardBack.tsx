@@ -5,15 +5,9 @@ import CardFooter from "./CardFooter";
 import { getLatestSeason } from "@/lib/api/utils/stats";
 import YearTable from "./YearTable";
 import { TrophyIcon } from "lucide-react";
-import { CardProps } from "./Card";
 import { getPlayerStats } from '@/lib/api/playerStats'
 import { CAREER } from "@/lib/api/const";
-
-interface CardBackProps extends CardProps {
-  primaryColor: string;
-  secondaryColor: string;
-}
-
+import type { CardBackProps } from "./types";
 
 export default async function CardBack({
   player, primaryColor, secondaryColor

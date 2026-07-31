@@ -1,19 +1,7 @@
 import { fullName, formatBirthday } from "@/lib/api/utils/utils";
-import Image from "next/image";
 import { PlayerHeadshot } from './PlayerHeadshot';
+import type { Player } from "./types";
 
-interface PlayerMetricProps {
-  first_name: string;
-  last_name: string;
-  birthday: string;
-  height: string;
-  weight: string;
-  position: string;
-  draft_year: number;
-  jersey: number;
-  color?: string;
-  secondaryColor?: string;
-}
 
 export default function PlayerMetric({
   first_name,
@@ -26,7 +14,7 @@ export default function PlayerMetric({
   jersey,
   color,
   secondaryColor,
-}: PlayerMetricProps) {
+}: Player) {
 
   const info = [
     {

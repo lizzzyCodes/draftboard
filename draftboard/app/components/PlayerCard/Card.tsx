@@ -8,11 +8,7 @@ import CardBack from './CardBack'
 import { getTeamDetails } from "@/lib/api/teamColors";
 import AnimatedCard from "./AnimatedCard";
 import { getPlayerStats } from "@/lib/api/playerStats";
-
-
-export interface CardProps {
-  player: Player;
-}
+import type { CardProps } from "./types";
 
 export default async function Card({ player }: CardProps) {
   const { first_name, last_name, team_name, team_abbrv } = player;
