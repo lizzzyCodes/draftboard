@@ -2,6 +2,8 @@ import { getPlayers } from "@/lib/api/players";
 import type { Player } from "@/lib/api/types/types";
 import CardContainer from "./components/PlayerCard/CardContainer";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const players = await getPlayers();
   return (

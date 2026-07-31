@@ -8,9 +8,10 @@ export async function getPlayers() {
             throw new Error("Failed to fetch players");
         }
 
-
         return response.json();
     } catch (error) {
+        console.error("Failed to fetch players:", error);
+        return [];
     }
 }
 
