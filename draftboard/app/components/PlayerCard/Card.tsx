@@ -7,15 +7,16 @@ import { Player } from "@/lib/api/types/player";
 import CardBack from './CardBack'
 import { getTeamDetails } from "@/lib/api/teamColors";
 import AnimatedCard from "./AnimatedCard";
+import { getPlayerStats } from "@/lib/api/playerStats";
+
 
 export interface CardProps {
   player: Player;
 }
 
 export default async function Card({ player }: CardProps) {
-  const { id, first_name, last_name, team_name, team_abbrv } = player;
+  const { first_name, last_name, team_name, team_abbrv } = player;
   const teamDetails = await getTeamDetails(team_abbrv);
-
   const color = teamDetails.color;
   const secondaryColor = teamDetails.alternate_color;
 

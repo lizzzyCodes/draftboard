@@ -81,9 +81,10 @@ interface CardBackProps extends CardProps {
 export default async function CardBack({
   player, primaryColor, secondaryColor
 }: CardBackProps) {
-  const playerStats = await getPlayerStats({ nba_player_id: 2544 }); // harcoded for now
+  const playerStats = await getPlayerStats(2544); // harcoded for now
   const latestStats = await getLatestSeason(playerStats.season_stats) // gets the latest stats for 2025-2026 season
-  // const { team_abbrv: ABRV } = playerStats;
+  const careerStats = playerStats.season_stats; // all career stas
+
   const { first_name, last_name, team_name, team_abbrv, birthday, draft_year, height, jersey, position, weight } = player;
   const TeamIcon = NBAIcons[team_abbrv as keyof typeof NBAIcons];
 
@@ -114,11 +115,10 @@ export default async function CardBack({
             rounded-br-[20px]"
         style={{ borderColor: secondaryColor }}
       >
-        <h3 style={{ borderColor: secondaryColor, color: secondaryColor }}>{fullName(first_name, last_name).toUpperCase()} </h3>
-        <PlayerInfo birthday={birthday} height={height} weight={weight} position={position} draft_year={draft_year} jersey={jersey} color={primaryColor} secondaryColor={secondaryColor} />
+        <PlayerInfo first_name={first_name} last_name={last_name} birthday={birthday} height={height} weight={weight} position={position} draft_year={draft_year} jersey={jersey} color={primaryColor} secondaryColor={secondaryColor} />
         <MetricContainer latestSeasonStats={latestStats} />
         {/**    <MetricContainer latestSeasonStats={playerStats} color={"#fec524"} /> */}
-        <YearTable />
+        <YearTable careerStats={careerStats} color={primaryColor} secondaryColor={secondaryColor} />
         <PlayerBio
           color={secondaryColor}
           bio="Four-time champion and the league's all-time scoring leader. Still running the offense at an elite level deep into his twenties year."

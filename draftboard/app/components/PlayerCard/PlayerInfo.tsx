@@ -1,8 +1,10 @@
-import { formatBirthday } from "@/lib/api/utils/utils";
+import { fullName, formatBirthday } from "@/lib/api/utils/utils";
 import Image from "next/image";
 import { PlayerHeadshot } from './PlayerHeadshot';
 
 interface PlayerMetricProps {
+  first_name: string;
+  last_name: string;
   birthday: string;
   height: string;
   weight: string;
@@ -14,6 +16,8 @@ interface PlayerMetricProps {
 }
 
 export default function PlayerMetric({
+  first_name,
+  last_name,
   birthday,
   height,
   weight,
@@ -53,18 +57,40 @@ export default function PlayerMetric({
 
   return (
     <>
-      <PlayerHeadshot img={'/player-images/lebronheadshot.avif'} position={position} color={secondaryColor} secondaryColor={color} />
-      {info.map((item) => (
-        <div key={item.label}>
-          <h4 style={{ color: color, fontWeight: "bold" }}>
-            {item.label.toUpperCase()}
-          </h4>
-          <h4>
-            {item.value}
-          </h4>
+
+      <div className="grid grid-cols-[auto_1fr] gap-4 items-stretch p-4">
+        <div className="row-span-2 flex">
+          <PlayerHeadshot
+            img={'/player-images/lebronheadshot.avif'}
+            position={position}
+            color={secondaryColor}
+            secondaryColor={color}
+          />
         </div>
-      ))}
+
+        <h3
+
+          className="text-7xl"
+          style={{ borderColor: secondaryColor, color: secondaryColor }}
+        >
+          {fullName(first_name, last_name).toUpperCase()}
+        </h3>
+
+        {/* Right column, row 2: info list */}
+        <div>
+          {info.map((item) => (
+            <div key={item.label} className="flex items-baseline gap-1 font-bold">
+              <h4>
+                {item.label.toUpperCase() + ":"}
+              </h4>
+              <h4>{item.value}</h4>
+            </div>
+          ))}
+        </div>
+      </div>
 
     </>
+
   );
 }
+

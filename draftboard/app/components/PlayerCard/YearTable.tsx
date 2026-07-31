@@ -1,25 +1,68 @@
 import { Flame, Shield, Zap, Target, TrophyIcon } from "lucide-react";
-interface YearTableProps {}
+import { getPlayerStats } from "@/lib/api/playerStats";
+import type { SeasonStats } from "@/lib/api/types/player";
+import { formatPercent } from "@/lib/api/utils/utils";
 
-export default function YearTable() {
+interface YearTableProps {
+  careerStats: SeasonStats
+  color?: string,
+  secondaryColor?: string
+}
+
+type ColumnKey =
+  | "season"
+  | "team"
+  | "gp"
+  | "fg_pct"
+  | "fg3_pct"
+  | "ft_pct"
+  | "rpg"
+  | "apg"
+  | "stl"
+  | "blk"
+  | "ppg"
+  | "avg";
+
+const COLUMNS: { key: ColumnKey; label: string }[] = [
+  { key: "season", label: "YEAR" },
+  { key: "team", label: "TEAM" },
+  { key: "gp", label: "GP" },
+  { key: "fg_pct", label: "FG%" },
+  { key: "fg3_pct", label: "3PT%" },
+  { key: "ft_pct", label: "FT%" },
+  { key: "rpg", label: "REB" },
+  { key: "apg", label: "AST" },
+  { key: "stl", label: "STL" },
+  { key: "blk", label: "BLK" },
+  { key: "ppg", label: "PPG" },
+  { key: "avg", label: "AVG" },
+];
+export default async function YearTable({ careerStats, color, secondaryColor }: YearTableProps) {
+
   return (
     <>
       <TrophyIcon size={10} />
       <h4 style={{ fontWeight: "bold", fontSize: "8px" }}>CAREER</h4>
+
+      <div
+        className="px-4 py-2.5"
+        style={{
+          background: secondaryColor,
+        }}
+      >
+        <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-white">
+          REGULAR SEASON
+        </h3>
+      </div>
+
       <table className="table-auto font-space-mono">
         <thead>
           <tr>
-            <th>YEAR</th>
-            <th>TEAM</th>
-            <th>GP</th>
-            <th>FG%</th>
-            <th>3PT%</th>
-            <th>FT%</th>
-            <th>REB</th>
-            <th>AST</th>
-            <th>STL</th>
-            <th>BLK</th>
-            <th>AVG</th>
+            {COLUMNS.map((column) => (
+              <th key={column.key}>
+                {column.label}
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>
@@ -67,3 +110,4 @@ export default function YearTable() {
     </>
   );
 }
+
