@@ -3,16 +3,17 @@ import Image from "next/image";
 import PlayerName from "./PlayerName";
 import Team from "./TeamName";
 import * as NBAIcons from "react-nba-logos";
-import { Player } from "@/lib/api/types/player";
 import CardBack from './CardBack'
-import { getTeamDetails } from "@/lib/api/teamColors";
 import AnimatedCard from "./AnimatedCard";
-import { getPlayerStats } from "@/lib/api/playerStats";
 import type { CardProps } from "./types";
 
-export default async function Card({ player }: CardProps) {
+export default function Card({
+  player, // birthday, draft_year, nombre, id
+  teamDetails, // equipo color, color secondary
+  playerStats, // srason satst
+}: CardProps) {
+  console.log(player, teamDetails, playerStats, 'aqui [ec]')
   const { first_name, last_name, team_name, team_abbrv } = player;
-  const teamDetails = await getTeamDetails(team_abbrv);
   const color = teamDetails.color;
   const secondaryColor = teamDetails.alternate_color;
 
