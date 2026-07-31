@@ -3,7 +3,6 @@ import CardHeader from "../CardHeader";
 import Image from "next/image";
 import PlayerName from "../PlayerName";
 import Team from "../TeamName";
-// import * as NBAIcons from "react-nba-logos";
 import type { Player, PlayerDetails } from "@/lib/api/types/types";
 
 interface CardFrontProps {
@@ -13,8 +12,6 @@ interface CardFrontProps {
 
 export default function CardFront({ player, playerDetails }: CardFrontProps) {
     const { first_name, last_name, team_name, team_abbrv } = player;
-    // const TeamIcon = NBAIcons[team_abbrv as keyof typeof NBAIcons];
-
     if (!playerDetails) {
         return null;
     }
