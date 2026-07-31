@@ -22,7 +22,7 @@ export default async function YearTable({ stats, secondaryColor, seasonText }: Y
         <thead>
           <tr>
             {COLUMNS.map((column) => (
-              <th key={column.key}>
+              <th className=" font-bold tracking-wider text-lg" key={column.key}>
                 {column.label}
               </th>
             ))}

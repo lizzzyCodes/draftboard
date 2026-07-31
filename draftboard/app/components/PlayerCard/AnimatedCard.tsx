@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, useMotionValue, useMotionTemplate, useSpring } from "framer-motion";
 import { ReactNode } from "react";
 
@@ -81,4 +80,4 @@ export default function AnimatedCard({ children, color }: AnimatedCardProps) {
             </motion.section>
         </div>
     );
-}
+} 

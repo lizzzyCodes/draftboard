@@ -5,7 +5,7 @@ import PlayerInfo from "./PlayerInfo";
 import PlayerBio from "./PlayerBio";
 import ScoutReportsSection from "./ScoutReports";
 import CardFooter from "./CardFooter";
-import Headshot from "./Headshot";
+import Headshot from "./CardBack/Headshot";
 import { fullName } from "@/lib/api/utils/utils";
 import { getLatestSeason } from "@/lib/api/utils/stats";
 import YearTable from "./YearTable";
@@ -67,9 +67,13 @@ export default async function CardBack({
       >
         <PlayerInfo first_name={first_name} last_name={last_name} birthday={birthday} height={height} weight={weight} position={position} draft_year={draft_year} jersey={jersey} color={primaryColor} secondaryColor={secondaryColor} />
         <MetricContainer latestSeasonStats={latestStats} />
-        {/**    <MetricContainer latestSeasonStats={playerStats} color={"#fec524"} /> */}
-        <TrophyIcon size={10} />
-        <h4 style={{ fontWeight: "bold", fontSize: "8px" }}>{CAREER}</h4>
+
+
+        <div className="flex items-center gap-4 text-gray-400 ">
+          <TrophyIcon size={20} />
+          <h4 className="font-bold tracking-wider text-lg ">{CAREER}</h4>
+        </div>
+
         <YearTable seasonText={"Regular Season"} stats={regularSeason} secondaryColor={secondaryColor} />
         <YearTable seasonText={"Playoffs"} stats={playoffSeason} secondaryColor={secondaryColor} />
         <PlayerBio

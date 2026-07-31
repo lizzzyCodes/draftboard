@@ -23,7 +23,9 @@ export default async function Card({ player }: CardProps) {
   const TeamIcon = NBAIcons[team_abbrv as keyof typeof NBAIcons];
   return (
     <>
-      <AnimatedCard color={color}
+      <AnimatedCard
+
+        color={color}
         secondaryColor={secondaryColor}>
         <div
           className="
@@ -74,7 +76,6 @@ export default async function Card({ player }: CardProps) {
         </div>
 
         <div className="absolute right-4 -mt-2">
-          {/** -mt moves the container up */}
           <Team team={team_name} />
         </div>
       </AnimatedCard >

@@ -5,5 +5,5 @@ interface PlayerName {
 }
 
 export default function PlayerName({ name }: PlayerName) {
-  return <h3 className="text-white">{name.toUpperCase()}</h3>;
+  return <h3 className="text-white font-bold tracking-wider text-lg">{name.toUpperCase()}</h3>;
 }

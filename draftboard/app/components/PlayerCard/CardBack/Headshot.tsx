@@ -1,14 +1,7 @@
 import Image from "next/image";
-import * as NBAIcons from "react-nba-logos";
-import PlayerName from "./PlayerName";
+import PlayerName from "../PlayerName";
+import { BASKETBALL_POSITIONS } from "./consts";
 
-const basketballPositions = {
-    pointGuard: "POINT GUARD",
-    shootingGuard: "SHOOTING GUARD",
-    smallForward: "SMALL FORWARD",
-    powerForward: "POWER FORWARD",
-    center: "CENTER",
-}
 interface HeadshotProps {
     src?: string;
     alt?: string;
@@ -26,7 +19,7 @@ export default function Headshot({ src, alt }: HeadshotProps) {
                     className="rounded-t-full border-b-100 border-blue-500"
                 />
 
-                <PlayerName name={basketballPositions.center} />
+                <PlayerName name={BASKETBALL_POSITIONS.center} />
             </div>
 
         </>
