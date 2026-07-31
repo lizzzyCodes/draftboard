@@ -11,8 +11,8 @@ export interface PlayerMetricProps {
   position: string;
   draft_year: number;
   jersey: number;
-  wingspan?: string;
-  standing_reach?: string;
+  wingspan: string;
+  standing_reach: string;
   color?: string;
   secondaryColor?: string;
 

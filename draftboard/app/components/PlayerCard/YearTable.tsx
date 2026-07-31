@@ -4,7 +4,7 @@ import { COLUMNS } from "./CardBack/SeasonColumns";
 
 interface YearTableProps {
   stats: SeasonStats[]
-  secondaryColor?: string
+  secondaryColor: string
   seasonText: string
 }
 

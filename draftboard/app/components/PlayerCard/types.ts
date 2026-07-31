@@ -81,12 +81,12 @@ export interface CardContainerProps {
 
 export interface CardProps {
     player: Player;
-    teamDetails?: TeamDetails;
-    playerStats?: SeasonStats;
+    teamDetails?: TeamDetails | null;
+    playerStats: Player | null;
 }
 
 export interface CardFrontProps {
     player: Player;
-    teamDetails?: TeamDetails;
+    teamDetails?: TeamDetails | null;
 }
 

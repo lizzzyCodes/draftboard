@@ -1,4 +1,3 @@
-import * as NBAIcons from "react-nba-logos";
 import MetricContainer from "./MetricContainer";
 import PlayerInfo from "../PlayerInfo";
 import CardFooter from "../CardFooter";
@@ -8,15 +7,18 @@ import { TrophyIcon } from "lucide-react";
 import { CAREER } from "@/lib/api/const";
 import type { CardProps } from "../types";
 
-
-
 export default function CardBack({
   player, // birthday, draft_year, nombre, id
   teamDetails, // equipo color, color secondary
-  playerStats, // srason satst
+  playerStats, // season_stats
 }: CardProps) {
 
   const { first_name, last_name, team_name, team_abbrv, birthday, draft_year, height, jersey, position, weight } = player;
+
+  if (!teamDetails || !playerStats) {
+    return null;
+  }
+
   const { color, alternate_color } = teamDetails;
   const { season_stats, combine } = playerStats;
   const wingspan = combine?.wingspan;
