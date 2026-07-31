@@ -88,7 +88,7 @@ export interface Player {
     birthday: string;
     jersey: number;
     position: string;
-    team_name?: string;
+    team_name: string;
     team_abbrv: string;
     draft_year: number;
     team: TeamDetails;

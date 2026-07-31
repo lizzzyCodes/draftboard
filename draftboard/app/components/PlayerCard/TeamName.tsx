@@ -1,11 +1,15 @@
-interface Team {
-  team: string;
-}
-
-export default function Team({ team }: Team) {
+export default function Team({ team_name }: { team_name: string }) {
   return (
-    <div className="p-1">
-      <h2 style={{ color: "#FFFFFF" }}>{team.toUpperCase()}</h2>
+    <div className="  py-2 overflow-hidden">
+      <h2
+        className="font-black uppercase tracking-tight leading-none"
+        style={{
+          color: "#FFFFFF",
+          fontSize: "clamp(1.25rem, 5vw, 2.5rem)", // scales with container, never overflows
+        }}
+      >
+        {team_name}
+      </h2>
     </div>
   );
 }

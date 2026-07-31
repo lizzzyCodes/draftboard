@@ -4,7 +4,7 @@ import type { SeasonStats } from "./types";
 
 
 interface MetricProps {
-  latestSeasonStats: SeasonStats
+  latestSeasonStats: SeasonStats;
 }
 
 export default function MetricsContainer({ latestSeasonStats }: MetricProps) {

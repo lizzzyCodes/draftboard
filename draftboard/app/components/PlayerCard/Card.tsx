@@ -14,9 +14,7 @@ export default function Card({
 }: CardProps) {
 
   const { first_name, last_name, team_name, team_abbrv } = player;
-
-  const color = teamDetails?.color;
-  const secondaryColor = teamDetails?.alternate_color;
+  const { color, alternate_color } = teamDetails;
 
   const TeamIcon = NBAIcons[team_abbrv as keyof typeof NBAIcons];
   return (
@@ -24,7 +22,7 @@ export default function Card({
       <AnimatedCard
 
         color={color}
-        secondaryColor={secondaryColor}>
+        secondaryColor={alternate_color}>
         <div
           className="
           h-[90%]
@@ -46,7 +44,7 @@ export default function Card({
             rounded-tr-[16px]
             rounded-bl-[16px]
             rounded-br-none"
-            style={{ borderColor: secondaryColor }}
+            style={{ borderColor: alternate_color }}
           >
             <CardHeader />
 
@@ -68,13 +66,13 @@ export default function Card({
 
         <div
           className="absolute bottom-0 left-0 z-50 border-2 bg-white rounded-full size-25 flex items-center justify-center overflow-hidden"
-          style={{ borderColor: secondaryColor }}
+          style={{ borderColor: alternate_color }}
         >
           <TeamIcon className="w-full h-full p-2" />
         </div>
 
         <div className="absolute right-4 -mt-2">
-          <Team team={team_name} />
+          <Team team_name={team_name} />
         </div>
       </AnimatedCard >
       <CardBack player={player} teamDetails={teamDetails} playerStats={playerStats} />
