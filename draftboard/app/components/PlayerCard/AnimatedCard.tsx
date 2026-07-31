@@ -49,7 +49,7 @@ export default function AnimatedCard({ children, color }: AnimatedCardProps) {
             <motion.section
                 onMouseMove={handleMouseMove}
                 onMouseLeave={reset}
-                className="w-[320px] h-[450px] rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[40px] rounded-br-none p-[5px] overflow-hidden relative"
+                className="w-[320px] h-[450px] rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[50px] rounded-br-none p-[5px] overflow-hidden relative"
                 style={{
                     backgroundColor: color,
                     rotateX,

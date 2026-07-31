@@ -1,12 +1,7 @@
 import * as NBAIcons from "react-nba-logos";
-import BackButton from "../Buttons/Back";
 import MetricContainer from "./MetricContainer";
 import PlayerInfo from "./PlayerInfo";
-import PlayerBio from "./PlayerBio";
-import ScoutReportsSection from "./ScoutReports";
 import CardFooter from "./CardFooter";
-import Headshot from "./CardBack/Headshot";
-import { fullName } from "@/lib/api/utils/utils";
 import { getLatestSeason } from "@/lib/api/utils/stats";
 import YearTable from "./YearTable";
 import { TrophyIcon } from "lucide-react";
@@ -25,7 +20,7 @@ export default async function CardBack({
 }: CardBackProps) {
   const { first_name, last_name, team_name, team_abbrv, birthday, draft_year, height, jersey, position, weight } = player;
   const { season_stats, combine } = await getPlayerStats(player.nba_player_id);
-  console.log(combine, 'doe the all chnge [e]c]')
+
   const latestStats = await getLatestSeason(season_stats)
 
   const TeamIcon = NBAIcons[team_abbrv as keyof typeof NBAIcons];

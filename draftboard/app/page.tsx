@@ -13,8 +13,6 @@ export default async function Home() {
       {players.map((player: Player) => (
         <Card key={player.id} player={player} />
       ))}
-
-      <Tray />
     </>
   );
 }
