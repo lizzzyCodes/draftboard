@@ -1,5 +1,4 @@
 import Compare from "../components/Comparison/ComparePage";
-import NavBar from "../components/NavBar/NavBar";
 import { getPlayers } from "@/lib/api/players";
 import { getTeamDetails } from "@/lib/api/teamColors";
 import { getShotData } from "@/lib/api/shot";
