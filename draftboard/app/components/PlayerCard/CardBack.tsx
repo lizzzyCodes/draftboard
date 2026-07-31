@@ -76,11 +76,6 @@ export default async function CardBack({
 
         <YearTable seasonText={"Regular Season"} stats={regularSeason} secondaryColor={secondaryColor} />
         <YearTable seasonText={"Playoffs"} stats={playoffSeason} secondaryColor={secondaryColor} />
-        <PlayerBio
-          color={secondaryColor}
-          bio="Four-time champion and the league's all-time scoring leader. Still running the offense at an elite level deep into his twenties year."
-        />
-        <ScoutReportsSection color={secondaryColor} />
         <CardFooter />
       </div>
     </section>

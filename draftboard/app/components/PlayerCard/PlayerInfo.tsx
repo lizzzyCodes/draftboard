@@ -58,7 +58,7 @@ export default function PlayerMetric({
   return (
     <>
 
-      <div className="grid grid-cols-[auto_1fr] gap-4 items-stretch p-4">
+      <div className="grid grid-cols-[auto_1fr] gap-4 items-center  p-4">
         <div className="row-span-2 flex">
           <PlayerHeadshot
             img={'/player-images/lebronheadshot.avif'}
@@ -76,7 +76,6 @@ export default function PlayerMetric({
           {fullName(first_name, last_name).toUpperCase()}
         </h3>
 
-        {/* Right column, row 2: info list */}
         <div>
           {info.map((item) => (
             <div key={item.label} className="flex items-baseline gap-1 font-bold">

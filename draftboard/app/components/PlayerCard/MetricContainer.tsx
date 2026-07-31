@@ -19,26 +19,6 @@ export default function MetricsContainer({ latestSeasonStats }: MetricProps) {
     { label: "FT%", value: formatPercent(ft_pct), icon: TrophyIcon },
   ];
 
-
-  {/*return (
-     <div>
-      <div
-        className="outline-2 outline-offset-2 outline-solid rounded-lg"
-        // style={{ color: color }}
-        style={{ color: "#000000" }}
-      >
-        <div>
-          <Flame size={10} />
-          <h4 style={{ color: "#000000", fontWeight: "bold", fontSize: "8px" }}>
-            PPG
-          </h4>
-        </div>
-        <h4 style={{ color: "#000000", fontWeight: "bold", fontSize: "24px" }}>
-          26.4
-        </h4>
-      </div>
-
-    </div> */}
   return (
     <div className="grid grid-cols-3 gap-3">
       {metrics.map(({ label, value, icon: Icon }) => (

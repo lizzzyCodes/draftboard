@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function CardFooter() {
   return (
-    <footer className=" text-white">
+    <footer className='p-4'>
       <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between text-sm">
         <Image
           src="/player-images/NBAPNG.png"
@@ -17,6 +17,6 @@ export default function CardFooter() {
           <p>Created in USA</p>
         </div>
       </div>
-    </footer>
+    </footer >
   );
 }
