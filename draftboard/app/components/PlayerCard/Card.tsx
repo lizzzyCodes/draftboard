@@ -55,7 +55,7 @@ export default async function Card({ player }: CardProps) {
             <hr className="border-t-[1.5px] border-white" />
             <div className="flex-1 min-h-0 relative w-full">
 
-              <Image src={'/player-images/lebronheadshot.avif'} alt={`${first_name} ${last_name}`} fill className="object-cover" />
+              <Image src={`/player-images/${first_name}_${last_name}_headshot.avif`} alt={`${first_name} ${last_name}`} fill className="object-cover" />
             </div>
 
             <hr className="border-t-[1.5px] border-white" />

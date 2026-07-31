@@ -10,8 +10,6 @@ export default async function Home() {
 
   return (
     <>
-      <NavBar />
-
       {players.map((player: Player) => (
         <Card key={player.id} player={player} />
       ))}

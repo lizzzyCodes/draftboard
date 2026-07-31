@@ -61,7 +61,7 @@ export default function PlayerMetric({
       <div className="grid grid-cols-[auto_1fr] gap-4 items-center  p-4">
         <div className="row-span-2 flex">
           <PlayerHeadshot
-            img={'/player-images/lebronheadshot.avif'}
+            img={`/player-images/${first_name}_${last_name}_headshot.avif`}
             position={position}
             color={secondaryColor}
             secondaryColor={color}

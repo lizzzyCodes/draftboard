@@ -23,18 +23,18 @@ interface CardBackProps extends CardProps {
 export default async function CardBack({
   player, primaryColor, secondaryColor
 }: CardBackProps) {
-  const playerStats = await getPlayerStats(2544); // harcoded for now
-  const latestStats = await getLatestSeason(playerStats.season_stats) // gets the latest stats for 2025-2026 season
-  const careerStats = playerStats.season_stats; // all career stas
-
   const { first_name, last_name, team_name, team_abbrv, birthday, draft_year, height, jersey, position, weight } = player;
+  const { season_stats, combine } = await getPlayerStats(player.nba_player_id);
+  console.log(combine, 'doe the all chnge [e]c]')
+  const latestStats = await getLatestSeason(season_stats)
+
   const TeamIcon = NBAIcons[team_abbrv as keyof typeof NBAIcons];
 
-  const playoffSeason = careerStats.filter(
+  const playoffSeason = season_stats.filter(
     (season: any) => season.season_type === "Playoffs"
   );
 
-  const regularSeason = careerStats.filter(
+  const regularSeason = season_stats.filter(
     (season: any) => season.season_type === "Regular Season"
   );
 
