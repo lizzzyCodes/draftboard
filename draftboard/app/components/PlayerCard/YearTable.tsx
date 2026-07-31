@@ -22,13 +22,13 @@ export default async function YearTable({ stats, secondaryColor, seasonText }: Y
         <thead>
           <tr>
             {COLUMNS.map((column) => (
-              <th className=" font-bold tracking-wider text-lg" key={column.key}>
+              <th className=" font-bold tracking-wider text-lg py-4" key={column.key}>
                 {column.label}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody>
+        <tbody className="p-4">
           {stats.map((season) => (
             <tr key={season.season}>
               {COLUMNS.map((column) => (

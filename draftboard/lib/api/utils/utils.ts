@@ -20,3 +20,9 @@ export function formatPercent(value: number): string {
 export function displayValue(value: string | number | null | undefined) {
     return value ?? "-";
 }
+
+// spurs and nets had black / white text and on the background you couldnt see much so included a fallback function
+export function safeColor(color?: string | null, fallback = "#000000"): string {
+    if (!color) return fallback;
+    return color.toUpperCase() === "#FFFFFF" ? fallback : color;
+}

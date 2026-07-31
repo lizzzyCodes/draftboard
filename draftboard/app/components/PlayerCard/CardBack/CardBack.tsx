@@ -6,6 +6,7 @@ import YearTable from "../YearTable";
 import { TrophyIcon } from "lucide-react";
 import { CAREER } from "@/lib/api/const";
 import type { CardProps } from "../types";
+import { safeColor } from "@/lib/api/utils/utils";
 
 export default function CardBack({
   player, // birthday, draft_year, nombre, id
@@ -19,7 +20,13 @@ export default function CardBack({
     return null;
   }
 
-  const { color, alternate_color } = teamDetails;
+
+  const { color: rawColor, alternate_color: rawAlternateColor } = teamDetails;
+
+  // ADD THIS: Use safeColor to prevent white text on white backgrounds
+  const color = safeColor(rawColor);
+  const alternate_color = safeColor(rawAlternateColor);
+
   const { season_stats, combine } = playerStats;
   const wingspan = combine?.wingspan;
   const standing_reach = combine?.standing_reach;
@@ -58,19 +65,22 @@ export default function CardBack({
             rounded-tr-[20px]
             rounded-bl-[20px]
             rounded-br-[20px]"
-        style={{ borderColor: alternate_color }}
+        style={{ borderColor: alternate_color, padding: "10px" }}
       >
         <PlayerInfo wingspan={wingspan} standing_reach={standing_reach} first_name={first_name} last_name={last_name} birthday={birthday} height={height} weight={weight} position={position} draft_year={draft_year} jersey={jersey} color={color} secondaryColor={alternate_color} />
         <MetricContainer latestSeasonStats={latestSeasonStats} />
 
 
-        <div className="flex items-center gap-4 text-gray-400 ">
+        <div className="flex items-center gap-4 text-gray-400 p-4">
           <TrophyIcon size={20} />
           <h4 className="font-bold tracking-wider text-lg ">{CAREER}</h4>
         </div>
-
-        <YearTable seasonText={"Regular Season"} stats={regularSeason} secondaryColor={alternate_color} />
-        <YearTable seasonText={"Playoffs"} stats={playoffSeason} secondaryColor={alternate_color} />
+        <div className="p-2">
+          <YearTable seasonText={"Regular Season"} stats={regularSeason} secondaryColor={alternate_color} />
+        </div>
+        <div className="p-2">
+          <YearTable seasonText={"Playoffs"} stats={playoffSeason} secondaryColor={alternate_color} />
+        </div>
         <CardFooter />
       </div>
     </section>

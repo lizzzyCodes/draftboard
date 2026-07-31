@@ -115,7 +115,7 @@ export default function AnimatedCard({ id, front, back, color }: AnimatedCardPro
                             layoutId={`card-${id}`}
                             onClick={(e) => e.stopPropagation()}
                             className="w-[95vw] h-[95vh] max-w-4xl rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[50px] rounded-br-none p-[5px] relative"
-                            style={{ backgroundColor: color, perspective: 1400 }}
+                            style={{ backgroundColor: "#FFFFFF", perspective: 1400 }}
                         >
                             <motion.div
                                 className="relative w-full h-full"
