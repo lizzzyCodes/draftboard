@@ -1,4 +1,4 @@
-from nba_api.stats.endpoints import draftcombinestats, draftcombineplayeranthro, shotchartdetail
+from nba_api.stats.endpoints import draftcombinestats, draftcombineplayeranthro, shotchartdetail, commonplayerinfo, playercareerstats
 
 def get_player_info(player_id):
 
