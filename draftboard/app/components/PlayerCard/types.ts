@@ -87,6 +87,6 @@ export interface CardProps {
 
 export interface CardFrontProps {
     player: Player;
-    teamDetails: TeamDetails;
+    teamDetails?: TeamDetails;
 }
 

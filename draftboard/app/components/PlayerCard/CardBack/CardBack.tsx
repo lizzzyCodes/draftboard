@@ -16,14 +16,13 @@ export default function CardBack({
   playerStats, // srason satst
 }: CardProps) {
 
-  console.log(player, '[ec] player is here ')
   const { first_name, last_name, team_name, team_abbrv, birthday, draft_year, height, jersey, position, weight } = player;
   const { color, alternate_color } = teamDetails;
   const { season_stats, combine } = playerStats;
   const wingspan = combine?.wingspan;
   const standing_reach = combine?.standing_reach;
   const latestSeasonStats = getLatestSeason(season_stats);
-  console.log(latestSeasonStats, 'e[ec] latest')
+
   const playoffSeason = season_stats.filter(
     (season: any) => season.season_type === "Playoffs"
   );

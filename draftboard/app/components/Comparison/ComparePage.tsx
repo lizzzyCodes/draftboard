@@ -1,4 +1,4 @@
-import { getPlayers } from "@/lib/api/players";
+/*import { getPlayers } from "@/lib/api/players";
 import { getTeamDetails } from "@/lib/api/teamColors";
 import {
   getShotData
@@ -40,4 +40,4 @@ export default async function ComparePage() {
       playerBShotData={playerBShotData}
     />
   );
-}
+} */

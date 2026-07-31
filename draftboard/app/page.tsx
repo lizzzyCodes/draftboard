@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <>
       {players.map((player: Player) => (
-        <div className="p-8">
+        <div key={player.nba_player_id} className="p-8">
           <CardContainer
             key={player.id}
             player={player}

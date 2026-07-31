@@ -8,8 +8,11 @@ import type { CardFrontProps } from "../types";
 
 export default function CardFront({ player, teamDetails }: CardFrontProps) {
     const { first_name, last_name, team_name, team_abbrv } = player;
-    const { alternate_color } = teamDetails;
     const TeamIcon = NBAIcons[team_abbrv as keyof typeof NBAIcons];
+    if (!teamDetails) {
+        return null;
+    }
+    const { alternate_color } = teamDetails;
 
     return (
         <>

@@ -6,6 +6,7 @@ export async function getTeamDetails(team_abbrv: string) {
         const response = await fetch(`${API_URL}/teams/${team_abbrv}`);
 
         if (!response.ok) {
+            const errorText = await response.text();
             throw new Error("Failed to fetch team data");
         }
 
