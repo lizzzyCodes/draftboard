@@ -5,7 +5,7 @@ import { getLatestSeason } from "@/lib/api/utils/stats";
 import YearTable from "../YearTable";
 import { TrophyIcon } from "lucide-react";
 import { CAREER } from "@/lib/api/const";
-import type { CardProps } from "@/lib/api/types/types";
+import type { CardProps } from "../Card"; // TODO: move to types file
 import { safeColor } from "@/lib/api/utils/utils";
 
 export default function CardBack({

@@ -26,7 +26,7 @@ export default function CardFront({ player, playerDetails }: CardFrontProps) {
             <div className="h-[90%] p-[3px] border-[3px] border-white rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-none">
                 <div
                     className="h-full flex flex-col border-[3px] rounded-tl-[16px] rounded-tr-[16px] rounded-bl-[16px] rounded-br-none"
-                    style={{ borderColor: alternate_color }}
+                    style={{ borderColor: alternate_color ?? undefined }}
                 >
                     <CardHeader />
                     <hr className="border-t-[1.5px] border-white" />
@@ -49,7 +49,7 @@ export default function CardFront({ player, playerDetails }: CardFrontProps) {
 
             <div
                 className="absolute bottom-0 left-0 z-50 border-2 bg-white rounded-full size-25 flex items-center justify-center overflow-hidden"
-                style={{ borderColor: alternate_color }}
+                style={{ borderColor: alternate_color ?? undefined }}
             >
                 <TeamIcon className="w-full h-full p-2" />
             </div>
