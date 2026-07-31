@@ -170,7 +170,3 @@ export interface CardFrontProps {
     teamDetails: TeamDetails;
 }
 
-export interface CardBackProps extends CardProps {
-    primaryColor: string;
-    secondaryColor: string;
-}

@@ -7,19 +7,21 @@ import YearTable from "./YearTable";
 import { TrophyIcon } from "lucide-react";
 import { getPlayerStats } from '@/lib/api/playerStats'
 import { CAREER } from "@/lib/api/const";
-import type { CardBackProps } from "./types";
+import type { CardProps } from "./types";
 
-export default async function CardBack({
-  player, primaryColor, secondaryColor
-}: CardBackProps) {
+export default function CardBack({
+  player, // birthday, draft_year, nombre, id
+  teamDetails, // equipo color, color secondary
+  playerStats, // srason satst
+}: CardProps) {
+
   console.log(player, '[ec] player is here ')
   const { first_name, last_name, team_name, team_abbrv, birthday, draft_year, height, jersey, position, weight } = player;
-  const { season_stats, combine } = await getPlayerStats(player.nba_player_id);
-
+  const { color, alternate_color } = teamDetails;
+  const { season_stats, combine } = playerStats;
   const wingspan = combine?.wingspan;
   const standing_reach = combine?.standing_reach;
-
-  const latestStats = await getLatestSeason(season_stats)
+  const latestSeasonStats = getLatestSeason(season_stats);
 
   const playoffSeason = season_stats.filter(
     (season: any) => season.season_type === "Playoffs"
@@ -41,7 +43,7 @@ export default async function CardBack({
         relative
       "
       style={{
-        borderColor: primaryColor, // this is background color the rest is border
+        borderColor: color, // this is background color the rest is border
       }}
     >
       <div
@@ -54,10 +56,10 @@ export default async function CardBack({
             rounded-tr-[20px]
             rounded-bl-[20px]
             rounded-br-[20px]"
-        style={{ borderColor: secondaryColor }}
+        style={{ borderColor: alternate_color }}
       >
-        <PlayerInfo wingspan={wingspan} standing_reach={standing_reach} first_name={first_name} last_name={last_name} birthday={birthday} height={height} weight={weight} position={position} draft_year={draft_year} jersey={jersey} color={primaryColor} secondaryColor={secondaryColor} />
-        <MetricContainer latestSeasonStats={latestStats} />
+        <PlayerInfo wingspan={wingspan} standing_reach={standing_reach} first_name={first_name} last_name={last_name} birthday={birthday} height={height} weight={weight} position={position} draft_year={draft_year} jersey={jersey} color={color} secondaryColor={alternate_color} />
+        <MetricContainer latestSeasonStats={latestSeasonStats} />
 
 
         <div className="flex items-center gap-4 text-gray-400 ">
@@ -65,8 +67,8 @@ export default async function CardBack({
           <h4 className="font-bold tracking-wider text-lg ">{CAREER}</h4>
         </div>
 
-        <YearTable seasonText={"Regular Season"} stats={regularSeason} secondaryColor={secondaryColor} />
-        <YearTable seasonText={"Playoffs"} stats={playoffSeason} secondaryColor={secondaryColor} />
+        <YearTable seasonText={"Regular Season"} stats={regularSeason} secondaryColor={alternate_color} />
+        <YearTable seasonText={"Playoffs"} stats={playoffSeason} secondaryColor={alternate_color} />
         <CardFooter />
       </div>
     </section>

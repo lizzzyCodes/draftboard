@@ -77,7 +77,7 @@ export default function Card({
           <Team team={team_name} />
         </div>
       </AnimatedCard >
-      <CardBack player={player} primaryColor={color} secondaryColor={secondaryColor} />
+      <CardBack player={player} teamDetails={teamDetails} playerStats={playerStats} />
     </>
   );
 }
