@@ -70,8 +70,8 @@ export default async function CardBack({
         {/**    <MetricContainer latestSeasonStats={playerStats} color={"#fec524"} /> */}
         <TrophyIcon size={10} />
         <h4 style={{ fontWeight: "bold", fontSize: "8px" }}>{CAREER}</h4>
-        <YearTable seasonText={"Regular Season"} stats={regularSeason} color={primaryColor} secondaryColor={secondaryColor} />
-        {/* <YearTable seasonText={"Playoffs"} stats={playoffSeason} color={primaryColor} secondaryColor={secondaryColor} /> */}
+        <YearTable seasonText={"Regular Season"} stats={regularSeason} secondaryColor={secondaryColor} />
+        <YearTable seasonText={"Playoffs"} stats={playoffSeason} secondaryColor={secondaryColor} />
         <PlayerBio
           color={secondaryColor}
           bio="Four-time champion and the league's all-time scoring leader. Still running the offense at an elite level deep into his twenties year."

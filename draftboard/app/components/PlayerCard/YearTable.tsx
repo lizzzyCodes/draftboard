@@ -4,17 +4,21 @@ import { COLUMNS } from "./CardBack/SeasonColumns";
 
 interface YearTableProps {
   stats: SeasonStats[]
-  color?: string,
   secondaryColor?: string
   seasonText: string
 }
 
-export default async function YearTable({ stats, color, secondaryColor, seasonText }: YearTableProps) {
+export default async function YearTable({ stats, secondaryColor, seasonText }: YearTableProps) {
 
   return (
     <>
       <TableDivider text={seasonText} secondaryColor={secondaryColor} />
-      <table className="table-auto font-space-mono">
+      <table className="
+        w-full 
+        table-fixed 
+        font-space-mono 
+        text-center
+      ">
         <thead>
           <tr>
             {COLUMNS.map((column) => (
