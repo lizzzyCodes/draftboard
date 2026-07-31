@@ -16,3 +16,7 @@ export function fullName(first_name: string, last_name: string) {
 export function formatPercent(value: number): string {
     return `${(value * 100).toFixed(1)}%`;
 }
+
+export function displayValue(value: string | number | null | undefined) {
+    return value ?? "-";
+}

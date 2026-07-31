@@ -1,7 +1,22 @@
 import { fullName, formatBirthday } from "@/lib/api/utils/utils";
+import { displayValue } from "@/lib/api/utils/utils";
 import { PlayerHeadshot } from './PlayerHeadshot';
-import type { Player } from "./types";
 
+export interface PlayerMetricProps {
+  first_name: string;
+  last_name: string;
+  birthday: string;
+  height: string;
+  weight: string;
+  position: string;
+  draft_year: number;
+  jersey: number;
+  wingspan?: string;
+  standing_reach?: string;
+  color?: string;
+  secondaryColor?: string;
+
+}
 
 export default function PlayerMetric({
   first_name,
@@ -14,7 +29,9 @@ export default function PlayerMetric({
   jersey,
   color,
   secondaryColor,
-}: Player) {
+  wingspan,
+  standing_reach,
+}: PlayerMetricProps) {
 
   const info = [
     {
@@ -23,23 +40,31 @@ export default function PlayerMetric({
     },
     {
       label: "Height",
-      value: height,
+      value: displayValue(height),
     },
     {
       label: "Weight",
-      value: weight,
+      value: displayValue(weight),
     },
     {
       label: "Position",
-      value: position,
+      value: displayValue(position),
     },
     {
       label: "Drafted",
-      value: draft_year,
+      value: displayValue(draft_year),
     },
     {
       label: "Jersey",
-      value: `#${jersey}`,
+      value: jersey ? `#${jersey}` : "-",
+    },
+    {
+      label: "Wingspan",
+      value: displayValue(wingspan),
+    },
+    {
+      label: "Standing Reach",
+      value: displayValue(standing_reach),
     },
   ];
 

@@ -12,10 +12,11 @@ export default function Card({
   teamDetails, // equipo color, color secondary
   playerStats, // srason satst
 }: CardProps) {
-  console.log(player, teamDetails, playerStats, 'aqui [ec]')
+
   const { first_name, last_name, team_name, team_abbrv } = player;
-  const color = teamDetails.color;
-  const secondaryColor = teamDetails.alternate_color;
+
+  const color = teamDetails?.color;
+  const secondaryColor = teamDetails?.alternate_color;
 
   const TeamIcon = NBAIcons[team_abbrv as keyof typeof NBAIcons];
   return (

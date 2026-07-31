@@ -1,9 +1,10 @@
 import { Flame, Shield, Zap, Target, TrophyIcon } from "lucide-react";
 import { formatPercent } from "@/lib/api/utils/utils";
-import { SeasonStats } from "@/lib/api/types/player";
+import type { SeasonStats } from "./types";
+
 
 interface MetricProps {
-  latestSeasonStats?: SeasonStats
+  latestSeasonStats: SeasonStats
 }
 
 export default function MetricsContainer({ latestSeasonStats }: MetricProps) {
