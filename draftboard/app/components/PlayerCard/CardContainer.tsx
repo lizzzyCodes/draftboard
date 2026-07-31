@@ -16,6 +16,8 @@ export default async function CardContainer({ player }: CardContainerProps) {
         getPlayerStats(player.nba_player_id),
     ]);
 
+    console.log(playerStats, 'player stats here [ec]')
+
     return (
         <Card
             player={player}

@@ -1,16 +1,12 @@
-// fetches all the nba_stats
 import { API_URL } from "./const";
 
-export async function getPlayerStats(nba_player_id?: number) {
-
-    const response = await fetch(
-        `${API_URL}/players/${nba_player_id}`
-    );
-
-    if (!response.ok) {
-        throw new Error("Failed to fetch stats");
+export async function getPlayerStats(nba_player_id: number) {
+    try {
+        const response = await fetch(`${API_URL}/players/${nba_player_id}`);
+        if (!response.ok) return null;
+        return await response.json();
+    } catch (error) {
+        console.error("Failed to fetch stats:", error);
+        return null;
     }
-
-
-    return response.json();
 }

@@ -6,11 +6,11 @@ import type { Player, PlayerDetails, TeamDetails } from "@/lib/api/types/types";
 export interface CardProps {
   player: Player;
   playerStats: PlayerDetails | null;
-  teamDetails?: TeamDetails | null;
+  teamDetails: TeamDetails | null;
 }
 
 export default function Card({ player, teamDetails, playerStats }: CardProps) {
-
+  console.log(playerStats, '[ec]jere pla')
   if (!teamDetails) {
     return null;
   }
