@@ -88,3 +88,54 @@ I ran out of time to build several things the data already supports:
 - **Search** — a search bar to find players by name rather than browsing the fixed set.
 - **International/country filtering** — surfacing players by country of origin, directly inspired by the scouting research on evaluating international prospects.
 - **Scout notes** — directly inspired by scouts' own complaint that paperwork/report writing eats the most time in their day. The idea: a per-player notes field where a user can write scouting notes, favorite players, view their favorited list, and export their notes as PDF or JSON — essentially a lightweight version of the report-writing workflow the research surfaced as the single most repeated pain point across every scout interviewed.
+
+## AI Tool Usage Disclosure
+I used ChatGPT as a learning and debugging assistant during the development of my project. The core project concept, product direction, and feature decisions were my own. AI was used to help me understand technical concepts, troubleshoot issues, and improve my understanding of backend architecture.
+
+### Summary of prompts/topics used:
+
+**Backend architecture and FastAPI setup**
+
+- Asked for explanations of how to structure a FastAPI backend project.
+- Asked about organizing folders such as models, schemas, routers, services, and scripts.
+- Asked for guidance on best practices for separating API integrations from application logic.
+- Asked which endpoints in the pbpstats API matched a specific list of desired data points (bio, college/NBA stats, PPG/RPG/APG, combine numbers, scouting-style descriptors).
+- Provided balldontlie's full OpenAPI spec and asked which endpoints to use given everything discussed.
+- Debugged multiple run-time errors: wrong uv run invocation, ModuleNotFoundError for scripts, a TypeError from using the raw (non-normalized) nba_api dict shape.
+
+**Database design and SQLAlchemy**
+
+- Asked for explanations of the difference between SQLAlchemy models and Pydantic schemas.
+- Asked how database relationships work using IDs and how related tables (players, stats, shots, reviews) should connect.
+- Asked for guidance on designing database tables for NBA player data.
+
+**Data ingestion and API integration**
+
+- Asked how to structure external API calls from sources such as NBA APIs.
+- Asked about creating import/seed scripts to fetch external data and store it in PostgreSQL.
+- Asked about organizing different API integrations into separate service files.
+- Asked for explanations of how to transform API responses into database objects.
+
+**Debugging and environment setup**
+
+- Used AI assistance to troubleshoot Python environment issues, virtual environments, package installation, and running FastAPI locally.
+- Asked for help diagnosing dependency issues involving Python, SQLAlchemy, PostgreSQL, and package management.
+
+**Learning backend concepts**
+
+- Asked conceptual questions about backend workflows, including:
+    - How frontend applications retrieve database IDs.
+    - How APIs, services, databases, and frontend components communicate.
+    - How database models translate external API data into stored records.
+
+### Example prompt summaries:
+
+- "Explain the difference between SQLAlchemy models and Pydantic schemas."
+- "How should I structure a FastAPI backend that imports NBA data and stores it in PostgreSQL?"
+- "How should I organize API service files when using multiple external APIs?"
+- "How does a seed script fetch API data and save it to a database?"
+- "Help me debug my FastAPI/PostgreSQL environment setup."
+
+### AI contribution:
+
+AI was used primarily as a technical tutor and debugging resource. It helped explain unfamiliar backend concepts, suggest common architectural patterns, and assist with troubleshooting. I made the final decisions regarding the project scope, application design, data sources, features, and implementation approach.
