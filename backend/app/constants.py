@@ -9,6 +9,7 @@ NBA_PLAYER_IDS = [
     203954,   # Joel Embiid
     1628369,  # Jayson Tatum
     1641705,  # Victor Wembanyama
+    1629008,
 ]
 
 PRIMARY_SEASON = "2025-26"
