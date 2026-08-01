@@ -4,6 +4,7 @@ import Image from "next/image";
 import PlayerName from "../PlayerName";
 import Team from "../TeamName";
 import type { Player, PlayerDetails } from "@/lib/api/types/types";
+import { headshotUrl } from "@/lib/api/utils/utils";
 
 interface CardFrontProps {
     player: Player;
@@ -11,13 +12,12 @@ interface CardFrontProps {
 }
 
 export default function CardFront({ player, playerDetails }: CardFrontProps) {
-    const { first_name, last_name, team_name, team_abbrv } = player;
+    const { first_name, last_name, team_name, nba_player_id } = player;
     if (!playerDetails) {
         return null;
     }
     const { team } = playerDetails;
     const { alternate_color } = team;
-    console.log(team.logo_url, 'es esta no? [ec]')
 
     return (
         <>
@@ -30,7 +30,8 @@ export default function CardFront({ player, playerDetails }: CardFrontProps) {
                     <hr className="border-t-[1.5px] border-white" />
                     <div className="flex-1 min-h-0 relative w-full">
                         <Image
-                            src={`/player-images/${first_name}_${last_name}_headshot.avif`}
+                            // src={`/player-images/${first_name}_${last_name}_headshot.avif`}
+                            src={headshotUrl(nba_player_id)}
                             alt={`${first_name} ${last_name}`}
                             fill
                             className="object-cover"

@@ -2,6 +2,7 @@ import { fullName, formatBirthday } from "@/lib/api/utils/utils";
 import { displayValue } from "@/lib/api/utils/utils";
 import { PlayerHeadshot } from './PlayerHeadshot';
 import type { Player, Combine } from "@/lib/api/types/types";
+import { headshotUrl } from "@/lib/api/utils/utils";
 
 interface PlayerMetricProps {
   player: Player;
@@ -25,6 +26,7 @@ export default function PlayerMetric({
     position,
     draft_year,
     jersey,
+    nba_player_id
   } = player;
 
   const wingspan = combine?.wingspan;
@@ -71,7 +73,8 @@ export default function PlayerMetric({
       <div className="grid grid-cols-[auto_1fr] gap-4 items-center  p-4">
         <div className="row-span-2 flex">
           <PlayerHeadshot
-            img={`/player-images/${first_name}_${last_name}_headshot.avif`}
+            img={headshotUrl(nba_player_id)}
+            //  img={`/player-images/${first_name}_${last_name}_headshot.avif`}
             position={position}
             color={secondaryColor}
             secondaryColor={color}

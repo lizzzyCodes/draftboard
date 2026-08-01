@@ -26,3 +26,7 @@ export function safeColor(color?: string | null, fallback = "#000000"): string {
     if (!color) return fallback;
     return color.toUpperCase() === "#FFFFFF" ? fallback : color;
 }
+
+// lib/nbaImages.ts
+export const headshotUrl = (nbaId: number) =>
+    `https://cdn.nba.com/headshots/nba/latest/1040x760/${nbaId}.png`;

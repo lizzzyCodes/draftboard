@@ -13,6 +13,7 @@ export function PlayerHeadshot({
     color,      // background color 
     secondaryColor, // main red
 }: PlayerHeadshotProps) {
+
     return (
         <div className="relative w-[200px]">
             <div

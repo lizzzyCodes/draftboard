@@ -19,17 +19,6 @@ export default function CardBack({
   }
 
   const {
-    first_name,
-    last_name,
-    birthday,
-    draft_year,
-    height,
-    weight,
-    jersey,
-    position,
-  } = player;
-
-  const {
     color: rawColor,
     alternate_color: rawAlternateColor,
   } = teamDetails;
